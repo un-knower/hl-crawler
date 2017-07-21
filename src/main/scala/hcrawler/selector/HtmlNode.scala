@@ -1,0 +1,45 @@
+package hcrawler.selector
+
+import org.jsoup.nodes.{Document, Element}
+
+/**
+  * Created by hldev on 7/21/17.
+  */
+class HtmlNode(elements: Seq[Element]) extends AbstractSelectable {
+  lazy val sourceTexts = elements.map(_.toString)
+
+  override def links() = selectElements(LinksSelector())
+
+  protected def selectElements(elementSelector: BaseElementSelector): Selectable = {
+    if (!elementSelector.hasAttribute) {
+      val resultElements = elements.flatMap { element =>
+        val documentElement = checkElementAndConvert(element)
+        elementSelector.selectElements(documentElement)
+      }
+      new HtmlNode(resultElements)
+    } else {
+      val resultStrings = elements.flatMap { element =>
+        val documentElement = checkElementAndConvert(element)
+        elementSelector.selectSeq(documentElement)
+      }
+      new PlainText(resultStrings)
+    }
+  }
+
+  /**
+    * Only document can be select
+    * See: https://github.com/code4craft/webmagic/issues/113
+    */
+  private def checkElementAndConvert(element: Element): Element = {
+    case d: Document => d
+    case _ =>
+      val root = new Document(element.ownerDocument().baseUri())
+      root.appendChild(element.clone())
+      root
+  }
+
+  override def css(selector: String): Selectable = {
+    val cssSelector = Selectors.css(selector)
+    selectElements(cssSelector)
+  }
+}

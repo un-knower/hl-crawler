@@ -1,0 +1,434 @@
+format version: 5
+output mode:
+1 items
+0 -> single
+output directories:
+1 items
+output dir -> /home/hldev/Shen/ScalaCode/hcrawler/target/scala-2.12/classes
+compile options:
+0 items
+javac options:
+0 items
+compiler version:
+1 items
+0 -> 2.12.2
+compile order:
+1 items
+0 -> Mixed
+name hashing:
+1 items
+0 -> true
+products:
+7 items
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> /home/hldev/Shen/ScalaCode/hcrawler/target/scala-2.12/classes/hcrawler/Site$.class
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> /home/hldev/Shen/ScalaCode/hcrawler/target/scala-2.12/classes/hcrawler/Site.class
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Task.scala -> /home/hldev/Shen/ScalaCode/hcrawler/target/scala-2.12/classes/hcrawler/Task.class
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> /home/hldev/Shen/ScalaCode/hcrawler/target/scala-2.12/classes/hcrawler/util/HttpConstant$.class
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> /home/hldev/Shen/ScalaCode/hcrawler/target/scala-2.12/classes/hcrawler/util/HttpConstant$Method$.class
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> /home/hldev/Shen/ScalaCode/hcrawler/target/scala-2.12/classes/hcrawler/util/HttpConstant$StatusCode$.class
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> /home/hldev/Shen/ScalaCode/hcrawler/target/scala-2.12/classes/hcrawler/util/HttpConstant.class
+binary dependencies:
+7 items
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> /home/hldev/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.2.jar
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> /home/hldev/Shen/ScalaCode/hcrawler/target/scala-2.12/classes/hcrawler/util/HttpConstant.class
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> /home/local/jdk1.8.0_121/jre/lib/rt.jar
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Task.scala -> /home/hldev/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.2.jar
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Task.scala -> /home/local/jdk1.8.0_121/jre/lib/rt.jar
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> /home/hldev/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.2.jar
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> /home/local/jdk1.8.0_121/jre/lib/rt.jar
+direct source dependencies:
+0 items
+direct external dependencies:
+0 items
+public inherited source dependencies:
+0 items
+public inherited external dependencies:
+0 items
+member reference internal dependencies:
+2 items
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> /home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Task.scala -> /home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala
+member reference external dependencies:
+0 items
+inheritance internal dependencies:
+0 items
+inheritance external dependencies:
+0 items
+class names:
+7 items
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> hcrawler.Site
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> hcrawler.Site$
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Task.scala -> hcrawler.Task
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> hcrawler.util.HttpConstant
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> hcrawler.util.HttpConstant$
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> hcrawler.util.HttpConstant$Method$
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> hcrawler.util.HttpConstant$StatusCode$
+used names:
+322 items
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> &&
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> +
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> ->
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> <init>
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> <repeated>
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> ==
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> A
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> AbstractFunction14
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> Any
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> AnyRef
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> ArrowAssoc
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> B
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> Boolean
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> HttpConstant
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> IndexOutOfBoundsException
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> Int
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> Iterator
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> Map
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> None
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> Nothing
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> OK
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> Object
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> Option
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> Predef
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> Product
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> ScalaRunTime
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> Serializable
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> Set
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> Site
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> Some
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> Statics
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> StatusCode
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> String
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> T
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> T0
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> T1
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> T10
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> T11
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> T12
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> T13
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> T14
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> T2
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> T3
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> T4
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> T5
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> T6
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> T7
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> T8
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> T9
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> Tuple14
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> Tuple2
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> V1
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> _root_
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> _toString
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> acceptStatCodes
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> anyHash
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> apply
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> asInstanceOf
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> charset
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> contains
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> cookies
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> cycleRetryTimes
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> defaultCookies
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> disableCookieManagement
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> domain
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> eq
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> finalizeHash
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> hcrawler
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> headers
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> isInstanceOf
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> mix
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> name
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> package
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> retrySleepTime
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> retryTimes
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> runtime
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> scala
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> sleepTime
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> timeOut
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> toString
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> typedProductIterator
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> updated
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> useGzip
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> userAgent
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> util
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> value
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$1
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$10
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$100
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$101
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$102
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$103
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$104
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$105
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$106
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$107
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$108
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$109
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$11
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$110
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$111
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$112
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$113
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$114
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$115
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$116
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$117
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$118
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$119
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$12
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$120
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$121
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$122
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$123
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$124
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$125
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$126
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$127
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$128
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$129
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$13
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$130
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$131
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$132
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$133
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$134
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$135
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$136
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$137
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$138
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$139
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$14
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$140
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$141
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$142
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$143
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$144
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$145
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$146
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$147
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$148
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$149
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$15
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$150
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$151
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$152
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$153
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$154
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$155
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$156
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$157
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$158
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$159
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$16
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$160
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$161
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$162
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$163
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$164
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$165
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$166
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$167
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$168
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$169
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$17
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$170
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$171
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$172
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$173
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$174
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$175
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$176
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$177
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$178
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$179
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$18
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$180
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$181
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$182
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$183
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$184
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$185
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$186
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$187
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$188
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$189
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$19
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$190
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$191
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$192
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$193
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$194
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$195
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$196
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$197
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$198
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$199
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$2
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$20
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$200
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$201
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$202
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$203
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$204
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$205
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$206
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$207
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$208
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$209
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$21
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$210
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$22
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$23
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$24
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$25
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$26
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$27
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$28
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$29
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$3
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$30
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$31
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$32
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$33
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$34
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$35
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$36
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$37
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$38
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$39
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$4
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$40
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$41
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$42
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$43
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$44
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$45
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$46
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$47
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$48
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$49
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$5
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$50
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$51
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$52
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$53
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$54
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$55
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$56
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$57
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$58
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$59
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$6
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$60
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$61
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$62
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$63
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$64
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$65
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$66
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$67
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$68
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$69
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$7
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$70
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$71
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$72
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$73
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$74
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$75
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$76
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$77
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$78
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$79
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$8
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$80
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$81
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$82
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$83
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$84
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$85
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$86
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$87
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$88
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$89
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$9
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$90
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$91
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$92
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$93
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$94
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$95
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$96
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$97
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$98
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> x$99
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> ||
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Task.scala -> AnyRef
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Task.scala -> Predef
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Task.scala -> Site
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Task.scala -> String
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Task.scala -> hcrawler
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Task.scala -> scala
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> <init>
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> AnyRef
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> CONNECT
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> DELETE
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> GET
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> HEAD
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> HttpConstant
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> Int
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> Method
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> OK
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> Object
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> POST
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> PUT
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> StatusCode
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> String
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> TRACE
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> hcrawler
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> scala
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> util
+product stamps:
+7 items
+/home/hldev/Shen/ScalaCode/hcrawler/target/scala-2.12/classes/hcrawler/Site$.class -> lastModified(1500619073000)
+/home/hldev/Shen/ScalaCode/hcrawler/target/scala-2.12/classes/hcrawler/Site.class -> lastModified(1500619073000)
+/home/hldev/Shen/ScalaCode/hcrawler/target/scala-2.12/classes/hcrawler/Task.class -> lastModified(1500619073000)
+/home/hldev/Shen/ScalaCode/hcrawler/target/scala-2.12/classes/hcrawler/util/HttpConstant$.class -> lastModified(1500619073000)
+/home/hldev/Shen/ScalaCode/hcrawler/target/scala-2.12/classes/hcrawler/util/HttpConstant$Method$.class -> lastModified(1500619073000)
+/home/hldev/Shen/ScalaCode/hcrawler/target/scala-2.12/classes/hcrawler/util/HttpConstant$StatusCode$.class -> lastModified(1500619073000)
+/home/hldev/Shen/ScalaCode/hcrawler/target/scala-2.12/classes/hcrawler/util/HttpConstant.class -> lastModified(1500619073000)
+source stamps:
+3 items
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> hash(c6f4aa3004de6614b8b82730e5ac2b8d65870b45)
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Task.scala -> hash(3366550fc977ff1abe999d1d087efb7f61fca29a)
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> hash(f232523f5e9f38ce3b906b00e5553f1c17ff3f38)
+binary stamps:
+3 items
+/home/hldev/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.2.jar -> lastModified(1496737371000)
+/home/hldev/Shen/ScalaCode/hcrawler/target/scala-2.12/classes/hcrawler/util/HttpConstant.class -> lastModified(1500619073000)
+/home/local/jdk1.8.0_121/jre/lib/rt.jar -> lastModified(1481589985000)
+class names:
+3 items
+/home/hldev/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.2.jar -> scala.Int
+/home/hldev/Shen/ScalaCode/hcrawler/target/scala-2.12/classes/hcrawler/util/HttpConstant.class -> hcrawler.util.HttpConstant
+/home/local/jdk1.8.0_121/jre/lib/rt.jar -> java.lang.Object
+internal apis:
+3 items
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlSjH5SdlLSkQCAAdJAAdhcGlIYXNoWgAIaGFzTWFjcm9aABBoYXNQYWNrYWdlT2JqZWN0TAAYX2ludGVybmFsT25seV9uYW1lSGFzaGVzdAAkTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoZXM7TAADYXBpdAAVTHhzYnRpL2FwaS9Tb3VyY2VBUEk7TAALY29tcGlsYXRpb250ABdMeHNidGkvYXBpL0NvbXBpbGF0aW9uO1sABGhhc2h0AAJbQnhwXoYBWQAAc3IAInhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoZXNU2r6Z+tTsTAIAAlsAD2ltcGxpY2l0TWVtYmVyc3QAI1tMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2g7WwAOcmVndWxhck1lbWJlcnNxAH4AB3hwdXIAI1tMeHNidGkuYXBpLl9pbnRlcm5hbE9ubHlfTmFtZUhhc2g7SVqAtt2Wi/QCAAB4cAAAAAB1cQB+AAkAAAA7c3IAIHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoWw71InY4V88CAAJJAARoYXNoTAAEbmFtZXQAEkxqYXZhL2xhbmcvU3RyaW5nO3hwPgOGs3QABm5vdGlmeXNxAH4ADHWi9qJ0AAR3YWl0c3EAfgAMh7ZQcnQADmNvcHkkZGVmYXVsdCQyc3EAfgAMfWt8hnQADSRhc0luc3RhbmNlT2ZzcQB+AAxfqQvwdAAOY29weSRkZWZhdWx0JDVzcQB+AAzpc7A4dAAMcHJvZHVjdEFyaXR5c3EAfgAMrYAKXHQABmVxdWFsc3NxAH4ADGfUlu90AA5jb3B5JGRlZmF1bHQkOXNxAH4ADBrlho90AA9jb3B5JGRlZmF1bHQkMTJzcQB+AAx8gXZgdAAMYXNJbnN0YW5jZU9mc3EAfgAME9QDbHQABmRvbWFpbnNxAH4ADKATQaJ0AAxzeW5jaHJvbml6ZWRzcQB+AAwOupuKdAAJc2xlZXBUaW1lc3EAfgAMQM/rcXQADSRpc0luc3RhbmNlT2ZzcQB+AAz4xPOLdAAOY29weSRkZWZhdWx0JDhzcQB+AAwT+fEWdAAPY29weSRkZWZhdWx0JDEzc3EAfgAMSTl9cXQAD2FjY2VwdFN0YXRDb2Rlc3NxAH4ADPuJa7p0AAhjYW5FcXVhbHNxAH4ADAKZSsF0AA5hY2NlcHRTdGF0Q29kZXNxAH4ADHjFDFp0AA5jb3B5JGRlZmF1bHQkNHNxAH4ADDqSbWx0AA1wcm9kdWN0UHJlZml4c3EAfgAMj3ead3QACXVzZXJBZ2VudHNxAH4ADMDmkB90AAlub3RpZnlBbGxzcQB+AAxOqB9odAAHdGltZU91dHNxAH4ADEEB2T10AAxpc0luc3RhbmNlT2ZzcQB+AAzPZR69dAAHY29va2llc3NxAH4ADLICrd90AAY8aW5pdD5zcQB+AAzsecePdAAOZGVmYXVsdENvb2tpZXNzcQB+AAxTZOnFdAACPT1zcQB+AAwyC0+OdAAPY29weSRkZWZhdWx0JDE0c3EAfgAMNHkrX3QAD2N5Y2xlUmV0cnlUaW1lc3NxAH4ADKThSzR0AAZjb29raWVzcQB+AAxNeFYbdAAFY2xvbmVzcQB+AAyjqVzEdAAHY2hhcnNldHNxAH4ADNx0hM10ABdkaXNhYmxlQ29va2llTWFuYWdlbWVudHNxAH4ADOfAW8p0AAd1c2VHemlwc3EAfgAMTsYGcnQADmNvcHkkZGVmYXVsdCQ3c3EAfgAMHBt2WXQAD2NvcHkkZGVmYXVsdCQxMHNxAH4ADFi/a+h0AAYkaW5pdCRzcQB+AAyQnZGJdAAOcmV0cnlTbGVlcFRpbWVzcQB+AAyMF14mdAAOY29weSRkZWZhdWx0JDNzcQB+AAx/I3fOdAAEY29weXNxAH4ADMIJUJh0AAZoZWFkZXJzcQB+AAyMK0abdAAIdG9TdHJpbmdzcQB+AAzB5TZFdAACIT1zcQB+AAw76s2RdAAEU2l0ZXNxAH4ADC/BzF90AAhnZXRDbGFzc3NxAH4ADJAluaZ0AA5jb3B5JGRlZmF1bHQkMXNxAH4ADPcT7jV0AAdoZWFkZXJzc3EAfgAMT4w0QHQADmNvcHkkZGVmYXVsdCQ2c3EAfgAMVAdg53QAAm5lc3EAfgAM9N1V+XQAD2NvcHkkZGVmYXVsdCQxMXNxAH4ADBVcUFt0AAJlcXNxAH4ADId2d7t0AA9wcm9kdWN0SXRlcmF0b3JzcQB+AAyZqOdQdAACIyNzcQB+AAwbnslzdAAIZmluYWxpemVzcQB+AAwZVu60dAAOcHJvZHVjdEVsZW1lbnRzcQB+AAzv7e+rdAAIaGFzaENvZGVzcQB+AAywnleWdAAKcmV0cnlUaW1lc3NyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAFzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AI14cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgANeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc5fnYdwTJnuzAgABQgAFZmxhZ3N4cAB0AA1oY3Jhd2xlci5TaXRldXIAGltMeHNidGkuYXBpLlR5cGVQYXJhbWV0ZXI72W0mDyid8rYCAAB4cAAAAAB+cgAYeHNidGkuYXBpLkRlZmluaXRpb25UeXBlAAAAAAAAAAASAAB4cgAOamF2YS5sYW5nLkVudW0AAAAAAAAAABIAAHhwdAAIQ2xhc3NEZWZ1cgATW0xqYXZhLmxhbmcuU3RyaW5nO63SVufpHXtHAgAAeHAAAAAAc3IAIXhzYnRpLmFwaS5BYnN0cmFjdExhenkkU3RyaWN0TGF6eQ1mHGspFiq4AgABTAAFdmFsdWV0ABJMamF2YS9sYW5nL09iamVjdDt4cHNyABN4c2J0aS5hcGkuRW1wdHlUeXBlvP2eRkk7iSQCAAB4cgAUeHNidGkuYXBpLlNpbXBsZVR5cGVyeGKIISO/QAIAAHhyAA54c2J0aS5hcGkuVHlwZT9q2SEWSarKAgAAeHBzcQB+AKVzcgATeHNidGkuYXBpLlN0cnVjdHVyZamq+YCTb9gAAgADTAAIZGVjbGFyZWRxAH4AjUwACWluaGVyaXRlZHEAfgCNTAAHcGFyZW50c3EAfgCNeHEAfgCqc3EAfgCldXEAfgCIAAAAAHNxAH4ApXVxAH4AiAAAAABzcQB+AKV1cgARW0x4c2J0aS5hcGkuVHlwZTt0/6Vae/npQQIAAHhwAAAABnNyABR4c2J0aS5hcGkuUHJvamVjdGlvbvPSjVTpRaQtAgACTAACaWRxAH4ADUwABnByZWZpeHQAFkx4c2J0aS9hcGkvU2ltcGxlVHlwZTt4cQB+AKl0AAxTZXJpYWxpemFibGVzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AKlzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAAJzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABXNjYWxhc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AMNzcQB+ALZxAH4AuXNxAH4AunNxAH4AvXVxAH4AwAAAAANzcQB+AMJ0AARqYXZhc3EAfgDCdAACaW9xAH4Ax3NxAH4AtnQAB1Byb2R1Y3RxAH4AvHNxAH4AtnQABkVxdWFsc3EAfgC8c3EAfgC2dAAGT2JqZWN0c3EAfgC6c3EAfgC9dXEAfgDAAAAAA3NxAH4AwnEAfgDNc3EAfgDCdAAEbGFuZ3EAfgDHc3EAfgC2dAADQW55cQB+ALx1cgAUW0x4c2J0aS5hcGkuUGFja2FnZTtbExk3cKcnoQIAAHhwAAAAAXNyABF4c2J0aS5hcGkuUGFja2FnZX5Zj/auzjlYAgABTAAEbmFtZXEAfgANeHB0AAhoY3Jhd2xlcnNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABXWPd0wp1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5cQB+AA1MAA9zb3VyY2VEaXJlY3RvcnlxAH4ADXhwdAA9L2hvbWUvaGxkZXYvU2hlbi9TY2FsYUNvZGUvaGNyYXdsZXIvdGFyZ2V0L3NjYWxhLTIuMTIvY2xhc3Nlc3QAAS91cgACW0Ks8xf4BghU4AIAAHhwAAAAFMb0qjAE3mYUuLgnMOWsK41lhwtF
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Task.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlSjH5SdlLSkQCAAdJAAdhcGlIYXNoWgAIaGFzTWFjcm9aABBoYXNQYWNrYWdlT2JqZWN0TAAYX2ludGVybmFsT25seV9uYW1lSGFzaGVzdAAkTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoZXM7TAADYXBpdAAVTHhzYnRpL2FwaS9Tb3VyY2VBUEk7TAALY29tcGlsYXRpb250ABdMeHNidGkvYXBpL0NvbXBpbGF0aW9uO1sABGhhc2h0AAJbQnhwmJ6cOQAAc3IAInhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoZXNU2r6Z+tTsTAIAAlsAD2ltcGxpY2l0TWVtYmVyc3QAI1tMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2g7WwAOcmVndWxhck1lbWJlcnNxAH4AB3hwdXIAI1tMeHNidGkuYXBpLl9pbnRlcm5hbE9ubHlfTmFtZUhhc2g7SVqAtt2Wi/QCAAB4cAAAAAB1cQB+AAkAAAAWc3IAIHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoWw71InY4V88CAAJJAARoYXNoTAAEbmFtZXQAEkxqYXZhL2xhbmcvU3RyaW5nO3hwtKut63QABm5vdGlmeXNxAH4ADCiYRnx0AAR3YWl0c3EAfgAMCEzb2nQADSRhc0luc3RhbmNlT2ZzcQB+AAwN5/42dAAGZXF1YWxzc3EAfgAMga8m33QADGFzSW5zdGFuY2VPZnNxAH4ADGUMVsd0AAxzeW5jaHJvbml6ZWRzcQB+AAxlBnU5dAAEc2l0ZXNxAH4ADF0bQn10AA0kaXNJbnN0YW5jZU9mc3EAfgAM7J6w8XQABFVVSURzcQB+AAyfqE//dAAJbm90aWZ5QWxsc3EAfgAMNjiERHQADGlzSW5zdGFuY2VPZnNxAH4ADAyx3uR0AAI9PXNxAH4ADGPjAyt0AAVjbG9uZXNxAH4ADF7mHYF0AAh0b1N0cmluZ3NxAH4ADKWueNx0AAIhPXNxAH4ADEdliR10AAhnZXRDbGFzc3NxAH4ADDxk6Mh0AAJuZXNxAH4ADC8D96F0AAJlcXNxAH4ADPaPywx0AARUYXNrc3EAfgAMfWzDZ3QAAiMjc3EAfgAMZ6p+63QACGZpbmFsaXplc3EAfgAMWouXxHQACGhhc2hDb2Rlc3IAE3hzYnRpLmFwaS5Tb3VyY2VBUEm5Xqf5KSM4pAIAAlsAC2RlZmluaXRpb25zdAAXW0x4c2J0aS9hcGkvRGVmaW5pdGlvbjtbAAhwYWNrYWdlc3QAFFtMeHNidGkvYXBpL1BhY2thZ2U7eHB1cgAXW0x4c2J0aS5hcGkuRGVmaW5pdGlvbjuIyVzntONeDgIAAHhwAAAAAXNyABN4c2J0aS5hcGkuQ2xhc3NMaWtlgzQcod+wl2wCAARMAA5kZWZpbml0aW9uVHlwZXQAGkx4c2J0aS9hcGkvRGVmaW5pdGlvblR5cGU7WwAQc2F2ZWRBbm5vdGF0aW9uc3QAE1tMamF2YS9sYW5nL1N0cmluZztMAAhzZWxmVHlwZXQAEEx4c2J0aS9hcGkvTGF6eTtMAAlzdHJ1Y3R1cmVxAH4AQ3hyACF4c2J0aS5hcGkuUGFyYW1ldGVyaXplZERlZmluaXRpb275EW6x1VA84gIAAVsADnR5cGVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvVHlwZVBhcmFtZXRlcjt4cgAUeHNidGkuYXBpLkRlZmluaXRpb26HKhvocULjRgIABEwABmFjY2Vzc3QAEkx4c2J0aS9hcGkvQWNjZXNzO1sAC2Fubm90YXRpb25zdAAXW0x4c2J0aS9hcGkvQW5ub3RhdGlvbjtMAAltb2RpZmllcnN0ABVMeHNidGkvYXBpL01vZGlmaWVycztMAARuYW1lcQB+AA14cHNyABB4c2J0aS5hcGkuUHVibGljulg9rmwtYEICAAB4cgAQeHNidGkuYXBpLkFjY2Vzc91imvgdYzFIAgAAeHB1cgAXW0x4c2J0aS5hcGkuQW5ub3RhdGlvbjvrl+sZEPaNSAIAAHhwAAAAAHNyABN4c2J0aS5hcGkuTW9kaWZpZXJzl+dh3BMme7MCAAFCAAVmbGFnc3hwAXQADWhjcmF3bGVyLlRhc2t1cgAaW0x4c2J0aS5hcGkuVHlwZVBhcmFtZXRlcjvZbSYPKJ3ytgIAAHhwAAAAAH5yABh4c2J0aS5hcGkuRGVmaW5pdGlvblR5cGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AAVUcmFpdHVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgAheHNidGkuYXBpLkFic3RyYWN0TGF6eSRTdHJpY3RMYXp5DWYcaykWKrgCAAFMAAV2YWx1ZXQAEkxqYXZhL2xhbmcvT2JqZWN0O3hwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4AW3NyABN4c2J0aS5hcGkuU3RydWN0dXJlqar5gJNv2AACAANMAAhkZWNsYXJlZHEAfgBDTAAJaW5oZXJpdGVkcQB+AENMAAdwYXJlbnRzcQB+AEN4cQB+AGBzcQB+AFt1cQB+AD4AAAAAc3EAfgBbdXEAfgA+AAAAAHNxAH4AW3VyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAACc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4AX3QABk9iamVjdHNyABN4c2J0aS5hcGkuU2luZ2xldG9u/Kdf+M9W5EYCAAFMAARwYXRodAAQTHhzYnRpL2FwaS9QYXRoO3hxAH4AX3NyAA54c2J0aS5hcGkuUGF0aJs9XAjOpSeEAgABWwAKY29tcG9uZW50c3QAGltMeHNidGkvYXBpL1BhdGhDb21wb25lbnQ7eHB1cgAaW0x4c2J0aS5hcGkuUGF0aENvbXBvbmVudDtD2gl0LWcWdAIAAHhwAAAAA3NyAAx4c2J0aS5hcGkuSWSYMmyLN1PEQAIAAUwAAmlkcQB+AA14cgAXeHNidGkuYXBpLlBhdGhDb21wb25lbnRfmiJbLoafvAIAAHhwdAAEamF2YXNxAH4AeHQABGxhbmdzcgAOeHNidGkuYXBpLlRoaXPbCe2mzFpAXAIAAHhxAH4AeXNxAH4AbHQAA0FueXNxAH4AcHNxAH4Ac3VxAH4AdgAAAAJzcQB+AHh0AAVzY2FsYXEAfgB/dXIAFFtMeHNidGkuYXBpLlBhY2thZ2U7WxMZN3CnJ6ECAAB4cAAAAAFzcgAReHNidGkuYXBpLlBhY2thZ2V+WY/2rs45WAIAAUwABG5hbWVxAH4ADXhwdAAIaGNyYXdsZXJzcgAVeHNidGkuYXBpLkNvbXBpbGF0aW9u7frgw2rooEICAAJKAAlzdGFydFRpbWVbAAdvdXRwdXRzdAAaW0x4c2J0aS9hcGkvT3V0cHV0U2V0dGluZzt4cAAAAV1j3dMKdXIAGltMeHNidGkuYXBpLk91dHB1dFNldHRpbmc7f2rC86eHpUICAAB4cAAAAAFzcgAXeHNidGkuYXBpLk91dHB1dFNldHRpbmd62ZpHdPsdewIAAkwAD291dHB1dERpcmVjdG9yeXEAfgANTAAPc291cmNlRGlyZWN0b3J5cQB+AA14cHQAPS9ob21lL2hsZGV2L1NoZW4vU2NhbGFDb2RlL2hjcmF3bGVyL3RhcmdldC9zY2FsYS0yLjEyL2NsYXNzZXN0AAEvdXIAAltCrPMX+AYIVOACAAB4cAAAABQzZlUPyXf/Gr6ZnR0Ifvt/Yfyimg==
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlSjH5SdlLSkQCAAdJAAdhcGlIYXNoWgAIaGFzTWFjcm9aABBoYXNQYWNrYWdlT2JqZWN0TAAYX2ludGVybmFsT25seV9uYW1lSGFzaGVzdAAkTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoZXM7TAADYXBpdAAVTHhzYnRpL2FwaS9Tb3VyY2VBUEk7TAALY29tcGlsYXRpb250ABdMeHNidGkvYXBpL0NvbXBpbGF0aW9uO1sABGhhc2h0AAJbQnhwWqREOQAAc3IAInhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoZXNU2r6Z+tTsTAIAAlsAD2ltcGxpY2l0TWVtYmVyc3QAI1tMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2g7WwAOcmVndWxhck1lbWJlcnNxAH4AB3hwdXIAI1tMeHNidGkuYXBpLl9pbnRlcm5hbE9ubHlfTmFtZUhhc2g7SVqAtt2Wi/QCAAB4cAAAAAB1cQB+AAkAAAAec3IAIHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoWw71InY4V88CAAJJAARoYXNoTAAEbmFtZXQAEkxqYXZhL2xhbmcvU3RyaW5nO3hwSS57VnQABm5vdGlmeXNxAH4ADD1kcAZ0AAR3YWl0c3EAfgAMqQbrU3QADSRhc0luc3RhbmNlT2ZzcQB+AAzCQ5lPdAAHQ09OTkVDVHNxAH4ADJOQksV0AAZlcXVhbHNzcQB+AAwM7zWydAAMYXNJbnN0YW5jZU9mc3EAfgAML2CR8XQAClN0YXR1c0NvZGVzcQB+AAysvsO3dAAMc3luY2hyb25pemVkc3EAfgAMS5SSanQADSRpc0luc3RhbmNlT2ZzcQB+AAzkHvyKdAAESEVBRHNxAH4ADFrdLs50AAlub3RpZnlBbGxzcQB+AAwgZhpmdAAMSHR0cENvbnN0YW50c3EAfgAMKG40TnQABVRSQUNFc3EAfgAMZGjCvXQADGlzSW5zdGFuY2VPZnNxAH4ADDRsArt0AAJPS3NxAH4ADFUkwjB0AAI9PXNxAH4ADDganRN0AAVjbG9uZXNxAH4ADCWmokV0AANQVVRzcQB+AAzn6Wv/dAAGTWV0aG9kc3EAfgAM1zU1qXQACHRvU3RyaW5nc3EAfgAMqbw+RXQAAiE9c3EAfgAMeNXMS3QACGdldENsYXNzc3EAfgAMxOCrwnQAA0dFVHNxAH4ADFlCO7J0AAJuZXNxAH4ADO4HoPB0AARQT1NUc3EAfgAM0S9ktXQAAmVxc3EAfgAMDesPd3QABkRFTEVURXNxAH4ADAGJdkV0AAIjI3NxAH4ADH/2EcB0AAhmaW5hbGl6ZXNxAH4ADHKd+Gt0AAhoYXNoQ29kZXNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAFzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AFN4cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgANeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc5fnYdwTJnuzAgABQgAFZmxhZ3N4cAB0ABpoY3Jhd2xlci51dGlsLkh0dHBDb25zdGFudHVyABpbTHhzYnRpLmFwaS5UeXBlUGFyYW1ldGVyO9ltJg8onfK2AgAAeHAAAAAAfnIAGHhzYnRpLmFwaS5EZWZpbml0aW9uVHlwZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABk1vZHVsZXVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgAheHNidGkuYXBpLkFic3RyYWN0TGF6eSRTdHJpY3RMYXp5DWYcaykWKrgCAAFMAAV2YWx1ZXQAEkxqYXZhL2xhbmcvT2JqZWN0O3hwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4Aa3NyABN4c2J0aS5hcGkuU3RydWN0dXJlqar5gJNv2AACAANMAAhkZWNsYXJlZHEAfgBTTAAJaW5oZXJpdGVkcQB+AFNMAAdwYXJlbnRzcQB+AFN4cQB+AHBzcQB+AGt1cQB+AE4AAAAAc3EAfgBrdXEAfgBOAAAAAHNxAH4Aa3VyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAACc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4Ab3QABk9iamVjdHNyABN4c2J0aS5hcGkuU2luZ2xldG9u/Kdf+M9W5EYCAAFMAARwYXRodAAQTHhzYnRpL2FwaS9QYXRoO3hxAH4Ab3NyAA54c2J0aS5hcGkuUGF0aJs9XAjOpSeEAgABWwAKY29tcG9uZW50c3QAGltMeHNidGkvYXBpL1BhdGhDb21wb25lbnQ7eHB1cgAaW0x4c2J0aS5hcGkuUGF0aENvbXBvbmVudDtD2gl0LWcWdAIAAHhwAAAAA3NyAAx4c2J0aS5hcGkuSWSYMmyLN1PEQAIAAUwAAmlkcQB+AA14cgAXeHNidGkuYXBpLlBhdGhDb21wb25lbnRfmiJbLoafvAIAAHhwdAAEamF2YXNxAH4AiHQABGxhbmdzcgAOeHNidGkuYXBpLlRoaXPbCe2mzFpAXAIAAHhxAH4AiXNxAH4AfHQAA0FueXNxAH4AgHNxAH4Ag3VxAH4AhgAAAAJzcQB+AIh0AAVzY2FsYXEAfgCPdXIAFFtMeHNidGkuYXBpLlBhY2thZ2U7WxMZN3CnJ6ECAAB4cAAAAAJzcgAReHNidGkuYXBpLlBhY2thZ2V+WY/2rs45WAIAAUwABG5hbWVxAH4ADXhwdAANaGNyYXdsZXIudXRpbHNxAH4AmXQACGhjcmF3bGVyc3IAFXhzYnRpLmFwaS5Db21waWxhdGlvbu364MNq6KBCAgACSgAJc3RhcnRUaW1lWwAHb3V0cHV0c3QAGltMeHNidGkvYXBpL091dHB1dFNldHRpbmc7eHAAAAFdY93TCnVyABpbTHhzYnRpLmFwaS5PdXRwdXRTZXR0aW5nO39qwvOnh6VCAgAAeHAAAAABc3IAF3hzYnRpLmFwaS5PdXRwdXRTZXR0aW5netmaR3T7HXsCAAJMAA9vdXRwdXREaXJlY3RvcnlxAH4ADUwAD3NvdXJjZURpcmVjdG9yeXEAfgANeHB0AD0vaG9tZS9obGRldi9TaGVuL1NjYWxhQ29kZS9oY3Jhd2xlci90YXJnZXQvc2NhbGEtMi4xMi9jbGFzc2VzdAABL3VyAAJbQqzzF/gGCFTgAgAAeHAAAAAU8jJSP16fOM47kGsA5VU/HBf/Pzg=
+external apis:
+0 items
+source infos:
+3 items
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Site.scala -> 
+AAAAAAAAAAA=
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/Task.scala -> 
+AAAAAAAAAAA=
+/home/hldev/Shen/ScalaCode/hcrawler/src/main/scala/hcrawler/util/HttpConstant.scala -> 
+AAAAAAAAAAA=
+compilations:
+1 items
+0 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABXWPd0wp1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAPS9ob21lL2hsZGV2L1NoZW4vU2NhbGFDb2RlL2hjcmF3bGVyL3RhcmdldC9zY2FsYS0yLjEyL2NsYXNzZXN0AAEv
