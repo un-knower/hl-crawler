@@ -1,23 +1,23 @@
 package hcrawler
 
-import hcrawler.util.HttpConstant
+import hcrawler.utils.HttpConstant
+import java.util.UUID
 
 case class Site(
-                   domain: String,
-                   userAgent: String = "",
-                   defaultCookies: Map[String, String] = Map(),
-                   cookies: Map[String, Map[String, String]] = Map(),
-                   charset: String = "UTF-8",
-                   sleepTime: Int = 5000,
-                   retryTimes: Int = 0,
-                   cycleRetryTimes: Int = 0,
-                   retrySleepTime: Int = 1000,
-                   timeOut: Int = 5000,
-                   acceptStatCodes: Set[Int] = Set(HttpConstant.StatusCode.OK),
-                   headers: Map[String, String] = Map(),
-                   useGzip: Boolean = true,
-                   disableCookieManagement: Boolean = false
-               ) {
+    domain: String = null,
+    userAgent: String = "",
+    defaultCookies: Map[String, String] = Map(),
+    cookies: Map[String, Map[String, String]] = Map(),
+    charset: String = "UTF-8",
+    sleepTime: Int = 5000,
+    retryTimes: Int = 0,
+    cycleRetryTimes: Int = 0,
+    retrySleepTime: Int = 1000,
+    timeOut: Int = 5000,
+    acceptStatCodes: Set[Int] = Set(HttpConstant.StatusCode.OK),
+    headers: Map[String, String] = Map(),
+    useGzip: Boolean = true,
+    disableCookieManagement: Boolean = false) { self =>
 
   def cookie(name: String, value: String): Site = copy(defaultCookies = defaultCookies + (name -> value))
 
@@ -51,6 +51,32 @@ case class Site(
   def useGzip(useGzip: Boolean): Site = copy(useGzip = useGzip)
 
   def disableCookieManagement(disableCookieManagement: Boolean): Site = copy(disableCookieManagement = disableCookieManagement)
+
+  def toTask(): Task = new Task {
+
+    override def uuid(): String = {
+      if (domain != null) domain
+      else UUID.randomUUID().toString
+    }
+
+    override def site(): Site = self
+
+  }
+
+  override def toString(): String =  {
+    "Site{" +
+    "domain='" + domain + '\'' +
+    ", userAgent='" + userAgent + '\'' +
+    ", cookies=" + defaultCookies +
+    ", charset='" + charset + '\'' +
+    ", sleepTime=" + sleepTime +
+    ", retryTimes=" + retryTimes +
+    ", cycleRetryTimes=" + cycleRetryTimes +
+    ", timeOut=" + timeOut +
+    ", acceptStatCodes=" + acceptStatCodes +
+    ", headers=" + headers +
+    '}'
+  } 
 }
 
 /*

@@ -30,7 +30,7 @@ class HtmlNode(elements: Seq[Element]) extends AbstractSelectable {
     * Only document can be select
     * See: https://github.com/code4craft/webmagic/issues/113
     */
-  private def checkElementAndConvert(element: Element): Element = {
+  private def checkElementAndConvert(element: Element): Element = element match {
     case d: Document => d
     case _ =>
       val root = new Document(element.ownerDocument().baseUri())
@@ -40,6 +40,11 @@ class HtmlNode(elements: Seq[Element]) extends AbstractSelectable {
 
   override def css(selector: String): Selectable = {
     val cssSelector = Selectors.css(selector)
+    selectElements(cssSelector)
+  }
+
+  override def css(selector: String, attrName: String): Selectable = {
+    val cssSelector = Selectors.css(selector, attrName)
     selectElements(cssSelector)
   }
 }
