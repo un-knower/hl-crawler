@@ -1,5 +1,5 @@
 package hcrawler
-package util
+package utils
 
 object HttpConstant {
 
