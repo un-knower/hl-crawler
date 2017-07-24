@@ -3,19 +3,19 @@ package downloader
 
 import selector.Html
 
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext
+
 abstract class AbstractDownloader extends Downloader {
 
-  def download(url: String): Html = {
+  def download(url: String)(implicit ec: ExecutionContext): Future[Html] = {
     val page = download(Request(url), Site().toTask)
-    page.html
+    page.map(_.html)
   }
 
-  def download(url: String, charset: String): Html = {
+  def download(url: String, charset: String)(implicit ec: ExecutionContext): Future[Html] = {
     val page = download(Request(url), Site().charset(charset).toTask)
-    page.html
+    page.map(_.html)
   }
 
-  protected def onSuccess(request: Request): Unit = {}
-
-  protected def onError(request: Request): Unit = {}
 }

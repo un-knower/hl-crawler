@@ -20,3 +20,7 @@ libraryDependencies += "org.asynchttpclient" % "async-http-client" % "2.0.33"
 libraryDependencies +=  "org.scalaj" %% "scalaj-http" % "2.3.0"
 
 libraryDependencies += "org.apache.commons" % "commons-lang3" % "3.6"
+
+libraryDependencies += "com.squareup.okhttp3" % "okhttp" % "3.8.1"
+
+libraryDependencies += "com.squareup.okhttp3" % "okhttp-urlconnection" % "3.8.1"
