@@ -17,3 +17,7 @@ class QueueScheduler extends DuplicateRemovedScheduler {
   }
 
 }
+
+object QueueScheduler {
+  def apply(): QueueScheduler = new QueueScheduler()
+}

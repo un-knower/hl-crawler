@@ -23,3 +23,9 @@ project/plugins/project/
 rules
 
 # End of https://www.gitignore.io/api/sbt,scala
+project/project/
+src/main/java/
+src/main/resources/
+src/main/scala-2.12/
+src/main/scala/hcrawler/downloader/OkRequestConverter.scala
+src/test/

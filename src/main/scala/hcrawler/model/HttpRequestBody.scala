@@ -5,7 +5,7 @@ package model
 class HttpRequestBody(
     val body: Array[Byte],
     val contentType: String,
-    val encoding: String
+    val charset: String
     ) extends Serializable
 
 object HttpRequestBody {
@@ -22,16 +22,16 @@ object HttpRequestBody {
 
   }
 
-  def json(json: String, encoding: String): HttpRequestBody = {
-    new HttpRequestBody(json.getBytes(encoding), ContentType.JSON, encoding)
+  def json(json: String, charset: String = "UTF-8"): HttpRequestBody = {
+    new HttpRequestBody(json.getBytes(charset), ContentType.JSON, charset)
   }
 
-  def xml(xml: String, encoding: String): HttpRequestBody = {
-    new HttpRequestBody(xml.getBytes(encoding), ContentType.XML, encoding)
+  def xml(xml: String, charset: String = "UTF-8"): HttpRequestBody = {
+    new HttpRequestBody(xml.getBytes(charset), ContentType.XML, charset)
   }
 
-  def custom(body: Array[Byte], contentType: String, encoding: String): HttpRequestBody = {
-    new HttpRequestBody(body, contentType, encoding)
+  def custom(body: Array[Byte], contentType: String, charset: String = "UTF-8"): HttpRequestBody = {
+    new HttpRequestBody(body, contentType, charset)
   }
 
   /*def form(params: Map[String, Any], encoding: String): HttpRequestBody = {

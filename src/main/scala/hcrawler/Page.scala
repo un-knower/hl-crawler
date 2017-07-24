@@ -1,7 +1,6 @@
 package hcrawler
 
 import org.apache.commons.lang3.StringUtils
-import collection.mutable
 import selector.{Html, Selectable}
 import utils.UrlUtils.canonicalizeUrl
 import utils.HttpConstant.StatusCode
@@ -82,8 +81,4 @@ case class Page (
   }
 
 
-}
-
-object Page {
-  
 }
