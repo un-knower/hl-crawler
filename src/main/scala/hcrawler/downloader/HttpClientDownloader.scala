@@ -6,10 +6,10 @@ import java.nio.charset.Charset
 
 import com.typesafe.scalalogging.Logger
 import hcrawler.selector.PlainText
+import hcrawler.utils.CharsetUtils
 import okhttp3.{Call, Callback, OkHttpClient, Response}
 
 import scala.concurrent.{Future, Promise}
-
 import collection.JavaConverters._
 
 /**
@@ -21,18 +21,22 @@ class HttpClientDownloader extends AbstractDownloader {
 
   private val httpClient = new OkHttpClient()
 
-  override def download(request: Request, task: Task): Future[Page] = {
+  // TODO: proxy
+  override def download(request: Request, task: Task): Page = {
     val okRequest = OkRequestConverter.convert(request, task.site)
-    val promise = Promise[Page]()
-    httpClient.newCall(okRequest).enqueue(new Callback {
-      override def onFailure(call: Call, e: IOException) = {
-        promise.failure(e)
-      }
-      override def onResponse(call: Call, response: Response) = {
-        promise.success(handleResponse(request, task.site.charset, response, task))
-      }
-    })
-    promise.future
+    var page = Page.fail()
+    try {
+      val response = httpClient.newCall(okRequest).execute()
+      page = handleResponse(request, task.site.charset, response, task)
+      log.info(s"downloading page success ${request.url}")
+      page
+    } catch {
+      case e: IOException =>
+        log.warn(s"download page ${request.url} error", e)
+        page
+    } finally {
+      // TODO: ensure connection is released back to pool
+    }
   }
 
   protected def handleResponse(request: Request, charset: String, response: Response, task: Task): Page = {
@@ -54,19 +58,20 @@ class HttpClientDownloader extends AbstractDownloader {
 
 
   private def getResponseContent(charset: String, response: Response) = {
-
     val contentBytes = response.body().bytes()
-    val htmlCharset = response.body().contentType().charset()
-    if (htmlCharset != null) new String(contentBytes, htmlCharset)
+    val htmlCharset = getHtmlCharset(response, contentBytes)
+    if (htmlCharset.nonEmpty) new String(contentBytes, htmlCharset.get)
     else {
-      log.warn(s"Charset autodetect failed, use ${Charset.defaultCharset()} as charset. Please specify charset in Site.setCharset()")
-      new String(contentBytes)
+      log.warn(s"Charset autodetect failed, use $charset as charset")
+      new String(contentBytes, charset)
     }
 
   }
 
-  private def getHtmlCharset(response: Response, contentBytes: Array[Byte]): String = {
-    response.body().contentType().charset().toString
+  private def getHtmlCharset(response: Response, contentBytes: Array[Byte]): Option[String] = {
+    var charset = response.body().contentType().charset()
+    if (charset == null) CharsetUtils.detectCharset(contentBytes)
+    else Some(charset.toString)
   }
 }
 

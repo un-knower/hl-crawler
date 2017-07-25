@@ -14,7 +14,7 @@ project/plugins/project/
 .history
 .cache
 .lib/
-.idea
+.idea/
 
 ### Scala ###
 *.class
@@ -22,9 +22,4 @@ project/plugins/project/
 
 rules
 
-# End of https://www.gitignore.io/api/sbt,scala
-project/project/
-src/main/java/
-src/main/resources/
-src/main/scala-2.12/
-src/test/
+

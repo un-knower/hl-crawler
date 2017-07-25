@@ -13,10 +13,12 @@ object SpbExample extends App {
     override def process(page: Page) = {
       page.addTargetRequests(page.html.css("#submenu111").links().all())
 
-      page.putField("title", page.html.css(".flo .boxcenter").get())
-      page.putField("content", page.html.css(".dlll"))
+      page.putField("title", page.html.css(".flo.boxcenter > div", "text").get())
+      page.putField("content", page.html.css(".dlll").get())
 
-      if (page.resultItems.get("title") == null) page.skip(true)
+      if (page.resultItems.get("title").isEmpty) page.skip(true)
+
+      println(page.resultItems.get[String]("title"))
     }
 
     override def site = s
@@ -29,6 +31,6 @@ object SpbExample extends App {
 
   val p = ResultItemsCollectorPipeline()
 
-  Spider(new SpbPageProcessor).addUrls(startUrls).thread(50).pipeline(p).run()
+  Spider(new SpbPageProcessor).addUrls(startUrls).thread(50).run()
 
 }

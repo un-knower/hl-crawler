@@ -19,7 +19,7 @@ class CountableThreadPool(
 
   def threadAlive = _threadAlive.get()
 
-  def execute(body: => Unit): Unit = {
+  def execute(runnable: Runnable): Unit = {
 
     if (threadAlive >= nThreads) {
       try {
@@ -40,7 +40,7 @@ class CountableThreadPool(
     executorService.execute(new Runnable {
       override def run() = {
         try {
-          body
+          runnable.run()
         } finally {
           try {
             reentrantLock.lock()

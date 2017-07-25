@@ -18,9 +18,10 @@ class CssSelector(selectorText: String, attrName: String) extends BaseElementSel
   }
 
   protected def getText(element: Element): String = {
-    (element.childNodes.asScala.map {
+    element.childNodes.asScala.map {
       case node: TextNode => node.text()
-    }).mkString
+      case _ => ""
+    }.mkString
   }
 
   override def select(element: Element): String = {

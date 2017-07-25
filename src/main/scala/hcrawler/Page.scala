@@ -6,12 +6,12 @@ import utils.UrlUtils.canonicalizeUrl
 import utils.HttpConstant.StatusCode
 
 case class Page (
-    val request: Request,
-    var rawText: String,
-    val url: Selectable,
-    val headers: Map[String, Seq[String]],
-    val statusCode: Int = StatusCode.OK,
-    val downloadSuccess: Boolean = true,
+    request: Request,
+    rawText: String,
+    url: Selectable,
+    headers: Map[String, Seq[String]],
+    statusCode: Int = StatusCode.OK,
+    downloadSuccess: Boolean = true,
     var targetRequests: Seq[Request] = Vector()) {
 
   private val _resultItems = ResultItems(request)
@@ -33,7 +33,7 @@ case class Page (
   def addTargetRequests(requests: Seq[String]): Unit = {
     for (s <- requests) {
       if (!(StringUtils.isBlank(s) || s.equals("#") || s.startsWith("javascript:"))) {
-        val req = new Request(canonicalizeUrl(s, url.toString()))
+        val req = Request(canonicalizeUrl(s, url.toString))
         targetRequests :+= req
       }
     }
@@ -52,7 +52,7 @@ case class Page (
     if (!(StringUtils.isBlank(requestString) ||
           requestString.equals("#") ||
           requestString.startsWith("javascript:"))) {
-      val req = Request(canonicalizeUrl(requestString, url.toString()))
+      val req = Request(canonicalizeUrl(requestString, url.toString))
       targetRequests :+= req
     }
   }
@@ -61,10 +61,6 @@ case class Page (
     targetRequests :+= request
   }
 
-  def rawText(rt: String): Page = {
-    rawText = rt
-    this
-  }
 
   override def toString: String = {
     "Page{" +
@@ -80,5 +76,8 @@ case class Page (
     '}'
   }
 
+}
 
+object Page  {
+  private[hcrawler] def fail(): Page = Page(request = null, rawText = null, url = null, headers = null, downloadSuccess = false)
 }
