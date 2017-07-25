@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="feb59b3b-c3c3-4521-a774-3973dc250abb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/SpbExample.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/hcrawler/pipeline/CollectorPipeline.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/hcrawler/pipeline/ResultItemsCollectorPipeline.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/hcrawler/thread/CountableThreadPool.scala" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/hcrawler/pipeline/PipeLine.scala" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/hcrawler/ResultItems.scala" afterPath="$PROJECT_DIR$/src/main/scala/hcrawler/ResultItems.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/hcrawler/Spider.scala" afterPath="$PROJECT_DIR$/src/main/scala/hcrawler/Spider.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/hcrawler/downloader/HttpClientDownloader.scala" afterPath="$PROJECT_DIR$/src/main/scala/hcrawler/downloader/HttpClientDownloader.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/hcrawler/pipeline/ConsolePipeline.scala" afterPath="$PROJECT_DIR$/src/main/scala/hcrawler/pipeline/ConsolePipeline.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -191,6 +182,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="sbl1996 &lt;sbl1996@126.com&gt;" />
         <option value="HrvvI &lt;sbl1996@126.com&gt;" />
       </list>
     </option>
@@ -947,7 +939,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500891324681</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="left spider unfinished">
+      <created>1500964392982</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1500964392982</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
