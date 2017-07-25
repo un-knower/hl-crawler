@@ -4,7 +4,7 @@ import collection.mutable
 
 case class ResultItems private[hcrawler] (
     var request: Request,
-    var skip: Boolean = false,
+    var skip: Boolean = false
     ) {
 
   private var fields = Map[String, Any]()
@@ -21,7 +21,7 @@ case class ResultItems private[hcrawler] (
   def getAll: Map[String, Any] = fields
 
   override def toString: String = 
-    s"ResultItems{fields=${fields}, request=${request}, skip=${skip}}"
+    s"ResultItems{fields=$fields, request=$request, skip=$skip}"
   
 }
 

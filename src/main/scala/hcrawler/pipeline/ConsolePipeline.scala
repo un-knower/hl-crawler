@@ -10,3 +10,7 @@ class ConsolePipeline extends Pipeline {
     }
   }
 }
+
+object ConsolePipeline {
+  def apply(): ConsolePipeline = new ConsolePipeline()
+}
