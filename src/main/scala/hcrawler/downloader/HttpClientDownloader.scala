@@ -29,7 +29,7 @@ class HttpClientDownloader extends AbstractDownloader {
         promise.failure(e)
       }
       override def onResponse(call: Call, response: Response) = {
-
+        promise.success(handleResponse(request, task.site.charset, response, task))
       }
     })
     promise.future
