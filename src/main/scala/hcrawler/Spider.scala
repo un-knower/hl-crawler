@@ -176,10 +176,8 @@ class Spider private (
 
   private def processRequest(request: Request) = {
     val page = _downloader.download(request, this)
-    page onComplete  {
-      case Success(p) => onDownloadSuccess(request, p)
-      case Failure(e) => onDownloadFail(request)
-    }
+    if (page.downloadSuccess) onDownloadSuccess(request, page)
+    else onDownloadFail(request)
   }
 
   def addUrls(url: String, rest: String*): Spider = addUrls(url +: rest)
@@ -207,26 +205,23 @@ class Spider private (
     while (!Thread.currentThread().isInterrupted && stat.get == Running && !exitFlag) {
       val request = _scheduler.poll(this)
       if (request == null) {
-        if (_threadPool.threadAlive == 0 && exitWhenComplete) {
-          exitFlag = true
-        } else {
-          println(pageCount.get())
           waitNewUrl()
-        }
       } else {
-        _threadPool.execute {
-          try {
-            processRequest(request)
-            //onSuccess(request)
-          } catch {
-            case NonFatal(e) =>
-              //onError(request )
-              log.error("process request " + request + " error", e)
-          } finally {
-            pageCount.incrementAndGet()
-            signalNewUrl()
+        _threadPool.execute(new Runnable {
+          override def run() = {
+            try {
+              processRequest(request)
+              //onSuccess(request)
+            } catch {
+              case NonFatal(e) =>
+                //onError(request )
+                log.error("process request " + request + " error", e)
+            } finally {
+              pageCount.incrementAndGet()
+              signalNewUrl()
+            }
           }
-        }
+        })
       }
     }
     stat.set(Stopped)

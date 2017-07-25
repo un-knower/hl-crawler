@@ -10,7 +10,7 @@ case class ResultItems private[hcrawler] (
   private var fields = Map[String, Any]()
 
   def put[T](field: String, value: T): ResultItems = {
-    fields += field -> value
+    if (value != null) fields += field -> value
     this
   }
 

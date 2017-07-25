@@ -15,6 +15,7 @@ class Html(val document: Document) extends HtmlNode(Seq(document)) {
 
 object Html {
 
+
   lazy val log = Logger("Html")
 
   def apply(text: String): Html = new Html(Jsoup.parse(text))

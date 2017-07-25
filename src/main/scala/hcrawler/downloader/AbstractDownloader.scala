@@ -8,14 +8,14 @@ import scala.concurrent.ExecutionContext
 
 abstract class AbstractDownloader extends Downloader {
 
-  def download(url: String)(implicit ec: ExecutionContext): Future[Html] = {
-    val page = download(Request(url), Site().toTask)
-    page.map(_.html)
+  def download(url: String): Html = {
+    val page = download(Request(url), Site().toTask())
+    page.html
   }
 
-  def download(url: String, charset: String)(implicit ec: ExecutionContext): Future[Html] = {
-    val page = download(Request(url), Site().charset(charset).toTask)
-    page.map(_.html)
+  def download(url: String, charset: String): Html = {
+    val page = download(Request(url), Site().charset(charset).toTask())
+    page.html
   }
 
 }

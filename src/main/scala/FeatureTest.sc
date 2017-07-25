@@ -4,22 +4,26 @@ import akka.http.scaladsl.model.HttpRequest
 import akka.stream.ActorMaterializer
 import akka.util.ByteString
 import hcrawler.Site
-import hcrawler.util.HttpConstant
+import hcrawler.selector.Html
+import okhttp3.{OkHttpClient, Request}
 import org.jsoup.Jsoup
 
-implicit val system = ActorSystem()
-implicit val dispatcher = system.dispatcher
-implicit val materializer = ActorMaterializer()
 
 
-val url = "http://www.stats.gov.cn/tjsj/zxfb/"
+val url = "http://cq.spb.gov.cn/zcfg/201603/t20160316_732411.html"
 
+val doc = Jsoup.connect(url).execute().parse()
 
-val resp = Http().singleRequest(HttpRequest(uri = url))
+doc.select(".flo.boxcenter").text()
 
-resp.foreach { resp =>
-  resp.entity.dataBytes.runFold(ByteString(""))(_ ++ _).foreach {
-    body =>
-      println(body.utf8String)
-  }
-}
+val html = new Html(doc)
+
+html.css(".dlll").get()
+
+val request = new Request.Builder().url(url).build()
+
+val client = new OkHttpClient()
+
+val response = client.newCall(request).execute()
+
+response.body().contentType().charset().toString
