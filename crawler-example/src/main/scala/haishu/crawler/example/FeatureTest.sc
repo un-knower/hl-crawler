@@ -1,23 +1,20 @@
 import haishu.crawler.selector.Html
 import okhttp3.{OkHttpClient, Request}
 import org.jsoup.Jsoup
+import collection.JavaConverters._
 
-
-
-val url = "http://cq.spb.gov.cn/zcfg/201603/t20160316_732411.html"
+val url = "http://www.stats.gov.cn/tjsj/zxfb/"
 
 val doc = Jsoup.connect(url).execute().parse()
 
-doc.select(".flo.boxcenter").text()
+doc.select(".center_list > ul > li > span")
 
 val html = new Html(doc)
 
-html.css(".dlll").get()
+html.css(".center_list").links().regex(""".*\d{8}_\d{7}.html$""").all()
 
-val request = new Request.Builder().url(url).build()
+val url1 = "http://cq.spb.gov.cn/zcfg/index.html"
 
-val client = new OkHttpClient()
+val doc1 = Jsoup.connect(url1).execute().parse()
 
-val response = client.newCall(request).execute()
-
-response.body().contentType().charset().toString
+doc1.select("#submenu111").select("a").first().attr("abs:href")

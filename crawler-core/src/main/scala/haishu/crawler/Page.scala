@@ -30,10 +30,10 @@ case class Page(
     resultItems.put(field, value)
   }
 
-  def addTargetRequests(requests: Seq[String]): Unit = {
-    for (s <- requests) {
+  def addTargetRequests(urls: Seq[String]): Unit = {
+    for (s <- urls) {
       if (!(StringUtils.isBlank(s) || s.equals("#") || s.startsWith("javascript:"))) {
-        val req = Request(canonicalizeUrl(s, url.toString))
+        val req = Request(canonicalizeUrl(url.toString, s))
         targetRequests :+= req
       }
     }
@@ -48,14 +48,7 @@ case class Page(
     }
   }*/
 
-  def addTargetRequest(requestString: String): Unit = {
-    if (!(StringUtils.isBlank(requestString) ||
-      requestString.equals("#") ||
-      requestString.startsWith("javascript:"))) {
-      val req = Request(canonicalizeUrl(requestString, url.toString))
-      targetRequests :+= req
-    }
-  }
+  def addTargetRequest(requestString: String): Unit = addTargetRequests(Seq(requestString))
 
   def addTargetRequest(request: Request): Unit = {
     targetRequests :+= request

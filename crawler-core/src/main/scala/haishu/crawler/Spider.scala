@@ -35,16 +35,14 @@ class Spider private (
 
   private var _executorService: ExecutorService = _
 
-  private implicit var ec: ExecutionContext = _
-
   private var _threadPool: CountableThreadPool = _
 
-  def uuid(uuid: String) = {
+  def uuid(uuid: String): Spider = {
     _uuid = uuid
     this
   }
 
-  override def uuid = _uuid
+  override def uuid: String = _uuid
 
   protected val stat = new AtomicReference[SpiderStat](Init)
 
@@ -67,6 +65,16 @@ class Spider private (
   def startUrls(urls: Seq[String]): Spider = {
     val requests = urls.map(url => Request(url))
     _startRequests = _startRequests ++ requests
+    this
+  }
+
+  def startUrls(url: String, rest: String*): Spider = startUrls(url +: rest)
+
+  def addUrls(url: String, rest: String*): Spider = addUrls(url +: rest)
+
+  def addUrls(urls: Seq[String]): Spider = {
+    urls.foreach(url => addRequest(Request(url)))
+    signalNewUrl()
     this
   }
 
@@ -109,18 +117,98 @@ class Spider private (
     this
   }
 
-  override def site = _site
+  override def site: Site = _site
 
   def initComponents(): Unit = {
     if (_executorService == null || _executorService.isShutdown) {
       _executorService = Executors.newFixedThreadPool(_nThreads)
-      ec = ExecutionContext.fromExecutorService(_executorService)
     }
     if (_threadPool == null || _threadPool.isShutdown) {
       _threadPool = CountableThreadPool(_nThreads, _executorService)
     }
+    _startRequests.foreach(addRequest)
     _startRequests = Vector()
     _startTime = new Date()
+  }
+
+  protected def checkRunningStat(): Unit = {
+    val statNow = stat.get()
+    if (statNow == Running) throw new IllegalStateException("Spider is already running!")
+    if (!stat.compareAndSet(statNow, Running)) checkRunningStat()
+  }
+
+  override def run(): Unit = {
+    checkRunningStat()
+    initComponents()
+    log.info(s"Spider $uuid started!")
+    var exitFlag = false
+    while (!Thread.currentThread().isInterrupted && stat.get == Running && !exitFlag) {
+      val request = _scheduler.poll(this)
+      if (request == null) {
+        if (_threadPool.threadAlive == 0 && exitWhenComplete) {
+          exitFlag = true
+        } else {
+          waitNewUrl()
+        }
+      } else {
+        _threadPool.execute(() => {
+          try {
+            processRequest(request)
+            //onSuccess(request)
+          } catch {
+            case NonFatal(e) =>
+              //onError(request )
+              log.error("process request " + request + " error", e)
+          } finally {
+            pageCount.incrementAndGet()
+            signalNewUrl()
+          }
+        })
+      }
+    }
+    stat.set(Stopped)
+    _threadPool.shutdown()
+    log.info(s"Spider $uuid closed! ${pageCount.get} pages downloaded.")
+  }
+
+  def test(urls: String*): Unit = {
+    initComponents()
+    urls.foreach(url => processRequest(new Request(url)))
+  }
+
+  private def processRequest(request: Request) = {
+    val page = _downloader.download(request, this)
+    if (page.downloadSuccess) onDownloadSuccess(request, page)
+    else onDownloadFail(request)
+  }
+
+  private def onDownloadSuccess(request: Request, page: Page) = {
+    if (site.acceptStatCodes.contains(page.statusCode)) {
+      _pageProcessor.process(page)
+      extractAndAddRequests(page, spawnUrl)
+      if (!page.resultItems.skip) {
+        _pipelines.foreach(_.process(page.resultItems, this))
+      }
+    } else log.info(s"page status code error, page ${request.url} , code: ${page.statusCode}")
+    sleep(site.sleepTime)
+  }
+
+  private def extractAndAddRequests(page: Page, spawnUrl: Boolean) = {
+    if (spawnUrl && page.targetRequests.nonEmpty) {
+      page.targetRequests.foreach(addRequest)
+    }
+  }
+
+  private def sleep(time: Int) = {
+    try {
+      Thread.sleep(time)
+    } catch {
+      case e: InterruptedException => log.error("Thread interrupted when sleep", e)
+    }
+  }
+
+  private def onDownloadFail(request: Request) = {
+
   }
 
   private def waitNewUrl(): Unit = {
@@ -137,53 +225,6 @@ class Spider private (
     }
   }
 
-  private def sleep(time: Int) = {
-    try {
-      Thread.sleep(time)
-    } catch {
-      case e: InterruptedException => log.error("Thread interrupted when sleep", e)
-    }
-  }
-
-  private def extractAndAddRequests(page: Page, spawnUrl: Boolean) = {
-    if (spawnUrl && page.targetRequests.nonEmpty) {
-      page.targetRequests.foreach(addRequest)
-    }
-  }
-
-  private def addRequest(request: Request) = {
-    _scheduler.push(request, this)
-  }
-
-  private def onDownloadSuccess(request: Request, page: Page) = {
-    if (site.acceptStatCodes.contains(page.statusCode)) {
-      _pageProcessor.process(page)
-      extractAndAddRequests(page, spawnUrl)
-      if (!page.resultItems.skip) {
-        _pipelines.foreach(_.process(page.resultItems, this))
-      }
-    } else log.info(s"page status code error, page ${request.url} , code: ${page.statusCode}")
-    sleep(site.sleepTime)
-  }
-
-  private def onDownloadFail(request: Request) = {
-
-  }
-
-  private def processRequest(request: Request) = {
-    val page = _downloader.download(request, this)
-    if (page.downloadSuccess) onDownloadSuccess(request, page)
-    else onDownloadFail(request)
-  }
-
-  def addUrls(url: String, rest: String*): Spider = addUrls(url +: rest)
-
-  def addUrls(urls: Seq[String]): Spider = {
-    urls.foreach(url => addRequest(Request(url)))
-    signalNewUrl()
-    this
-  }
-
   private def signalNewUrl() = {
     try {
       newUrlLock.lock()
@@ -193,41 +234,8 @@ class Spider private (
     }
   }
 
-  override def run() = {
-    checkRunningStat()
-    initComponents()
-    log.info(s"Spider $uuid started!")
-    var exitFlag = false
-    while (!Thread.currentThread().isInterrupted && stat.get == Running && !exitFlag) {
-      val request = _scheduler.poll(this)
-      if (request == null) {
-        waitNewUrl()
-      } else {
-        _threadPool.execute(new Runnable {
-          override def run() = {
-            try {
-              processRequest(request)
-              //onSuccess(request)
-            } catch {
-              case NonFatal(e) =>
-                //onError(request )
-                log.error("process request " + request + " error", e)
-            } finally {
-              pageCount.incrementAndGet()
-              signalNewUrl()
-            }
-          }
-        })
-      }
-    }
-    stat.set(Stopped)
-    log.info(s"Spider $uuid closed! ${pageCount.get} pages downloaded.")
-  }
-
-  protected def checkRunningStat(): Unit = {
-    val statNow = stat.get()
-    if (statNow == Running) throw new IllegalStateException("Spider is already running!")
-    if (!stat.compareAndSet(statNow, Running)) checkRunningStat()
+  private def addRequest(request: Request) = {
+    _scheduler.push(request, this)
   }
 
 }

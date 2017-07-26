@@ -15,11 +15,11 @@ trait Selectable {
 
   def links(): Selectable
 
-  //def regex(regex: String): Selectable
+  def regex(regex: String): Selectable
 
-  //def regex(regex: String, group: Int): Selectable
+  def regex(regex: String, group: Int): Selectable
 
-  //def replace(regex: String, replacement: String): Selectable
+  def replace(regex: String, replacement: String): Selectable
 
   def get(): String
 

@@ -1,12 +1,13 @@
 package haishu.crawler.downloader
 
 import java.io.IOException
+import java.net.CookieHandler
 
 import com.typesafe.scalalogging.Logger
 import haishu.crawler.selector.PlainText
 import haishu.crawler.util.CharsetUtils
 import haishu.crawler.{Page, Request, Task}
-import okhttp3.{OkHttpClient, Response}
+import okhttp3.{JavaNetCookieJar, OkHttpClient, Response}
 
 import scala.collection.JavaConverters._
 
@@ -65,7 +66,7 @@ class HttpClientDownloader extends AbstractDownloader {
   }
 
   private def getHtmlCharset(response: Response, contentBytes: Array[Byte]): Option[String] = {
-    var charset = response.body().contentType().charset()
+    val charset = response.body().contentType().charset()
     if (charset == null) CharsetUtils.detectCharset(contentBytes)
     else Some(charset.toString)
   }

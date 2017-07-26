@@ -21,7 +21,7 @@ object Dependencies {
 
   val _scalaLogging = "com.typesafe.scala-logging" %% "scala-logging" % "3.7.2"
 
-  val _jsoup = "org.jsoup" % "jsoup" % "1.10.2"
+  val _jsoup = "org.jsoup" % "jsoup" % "1.10.3"
 
   val _logbackClassic = "ch.qos.logback" % "logback-classic" % "1.2.3"
 

@@ -4,6 +4,7 @@ package haishu.crawler.selector
  * Created by hldev on 7/21/17.
  */
 abstract class AbstractSelectable extends Selectable {
+
   protected def sourceTexts(): Seq[String]
 
   // no good ways to collect non-null values
@@ -21,6 +22,21 @@ abstract class AbstractSelectable extends Selectable {
 
   override def selectSeq(selector: Selector): Selectable = select(selector, sourceTexts())
 
+  override def regex(regex: String): Selectable = {
+    val regexSelector = Selectors.regex(regex)
+    selectSeq(regexSelector, sourceTexts())
+  }
+
+  override def regex(regex: String, group: Int): Selectable = {
+    val regexSelector = Selectors.regex(regex, group)
+    selectSeq(regexSelector, sourceTexts())
+  }
+
+  override def replace(regex: String, replacement: String): Selectable = {
+    val replaceSelector = ReplaceSelector(regex, replacement)
+    select(replaceSelector, sourceTexts())
+  }
+
   override def get(): String = if (all().isEmpty) null else all().head
 
   def firstSourceText: String = {
@@ -31,5 +47,5 @@ abstract class AbstractSelectable extends Selectable {
 
   override def toString: String = get()
 
-  override def isMatch = sourceTexts().nonEmpty
+  override def isMatch: Boolean = sourceTexts().nonEmpty
 }
