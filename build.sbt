@@ -1,26 +1,39 @@
+import Commons._
 import Dependencies._
+import sbt._
 
-name := "hcrawler"
+lazy val root = Project(id = "hl-crawler-root", base = file("."))
+  .aggregate(crawlerExample, crawlerCore, crawlerCommon)
+  .settings(Formatting.buildFileSettings: _*)
+  .settings(noPublishing: _*)
 
-version := "1.0"
+lazy val crawlerExample = project("crawler-example")
+  .dependsOn(crawlerCore)
+  .settings(
+    libraryDependencies ++= Seq(
+      _akkaHttp
+    )
+  )
 
-scalaVersion := "2.12.2"
+lazy val crawlerCore = project("crawler-core")
+  .dependsOn(crawlerCommon)
+  .settings(
+    libraryDependencies ++= Seq(
+      _akkaStream
+    ) ++ _okhttp
+  )
 
-libraryDependencies ++= Seq(
-  _jsoup,
-  _akkaHttp,
-  _akkaActor,
-  _akkaStream,
-  _scalaLogging,
-  _logbackClassic
-)
+lazy val crawlerCommon = project("crawler-common")
+  .settings(
+    libraryDependencies ++= Seq(
+      _akkaActor,
+      _jsoup,
+      _commonsLang3,
+      _scalaLogging,
+      _logbackClassic
+    )
+  )
 
-libraryDependencies += "org.asynchttpclient" % "async-http-client" % "2.0.33"
-
-libraryDependencies +=  "org.scalaj" %% "scalaj-http" % "2.3.0"
-
-libraryDependencies += "org.apache.commons" % "commons-lang3" % "3.6"
-
-libraryDependencies += "com.squareup.okhttp3" % "okhttp" % "3.8.1"
-
-libraryDependencies += "com.squareup.okhttp3" % "okhttp-urlconnection" % "3.8.1"
+def project(name: String, subPath: String = "") =
+  Project(id = name, base = file(if (subPath == "") name else subPath + "/" + name))
+    .settings(basicSettings: _*)
