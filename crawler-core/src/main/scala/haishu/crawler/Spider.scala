@@ -117,6 +117,8 @@ class Spider private (
     this
   }
 
+  def startTime: Date = _startTime
+
   override def site: Site = _site
 
   def initComponents(): Unit = {
@@ -208,7 +210,19 @@ class Spider private (
   }
 
   private def onDownloadFail(request: Request) = {
+    if (site.cycleRetryTimes == 0) sleep(site.sleepTime)
+    else doCycleRetry(request)
+  }
 
+  private def doCycleRetry(request: Request) = {
+    val cycleTriedTimes = request.getExtra[Int](Request.cycleTriedTimes)
+    cycleTriedTimes match {
+      case Some(t: Int) =>
+        val t1 = t + 1
+        if (t1 < site.cycleRetryTimes) addRequest(request.extra(Request.cycleTriedTimes, t1))
+      case None => addRequest(request.extra(Request.cycleTriedTimes, 1))
+    }
+    sleep(site.retrySleepTime)
   }
 
   private def waitNewUrl(): Unit = {

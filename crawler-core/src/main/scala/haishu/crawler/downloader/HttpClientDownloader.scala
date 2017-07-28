@@ -2,6 +2,7 @@ package haishu.crawler.downloader
 
 import java.io.IOException
 import java.net.CookieHandler
+import java.util.concurrent.TimeUnit
 
 import com.typesafe.scalalogging.Logger
 import haishu.crawler.selector.PlainText
@@ -14,7 +15,7 @@ import scala.collection.JavaConverters._
 /**
  * Created by hldev on 7/24/17.
  */
-class HttpClientDownloader extends AbstractDownloader {
+class HttpClientDownloader extends Downloader {
 
   private val log = Logger("HttpClientDownloader")
 
@@ -22,10 +23,14 @@ class HttpClientDownloader extends AbstractDownloader {
 
   // TODO: proxy
   override def download(request: Request, task: Task): Page = {
+    val s = task.site
+    val client = httpClient.newBuilder()
+      .connectTimeout(s.timeOut, TimeUnit.MILLISECONDS)
+      .build()
     val okRequest = OkRequestConverter.convert(request, task.site)
     var page = Page.fail()
     try {
-      val response = httpClient.newCall(okRequest).execute()
+      val response = client.newCall(okRequest).execute()
       page = handleResponse(request, task.site.charset, response, task)
       log.info(s"downloading page success ${request.url}")
       page
@@ -49,7 +54,6 @@ class HttpClientDownloader extends AbstractDownloader {
       rawText = content,
       url = PlainText(request.url),
       statusCode = response.code(),
-      downloadSuccess = true,
       headers = headers)
     page
   }

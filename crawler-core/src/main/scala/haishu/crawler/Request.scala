@@ -9,7 +9,8 @@ case class Request(
     method: String = GET,
     cookies: Map[String, String] = Map(),
     headers: Map[String, String] = Map(),
-    requestBody: Option[HttpRequestBody] = None) extends Serializable {
+    requestBody: Option[HttpRequestBody] = None,
+    extras: Map[String, Any] = Map()) extends Serializable {
 
   def requestBody(rb: HttpRequestBody): Request = copy(requestBody = Some(rb))
 
@@ -31,6 +32,10 @@ case class Request(
 
   def method(methodName: String): Request = copy(method = methodName)
 
+  def extra[T](key: String, value: T): Request = copy(extras = extras + (key -> value))
+
+  def getExtra[T](key: String): Option[T] = extras.get(key).map(_.asInstanceOf[T])
+
   override def toString: String = {
     "Request{" +
       "url='" + url + '\'' +
@@ -40,4 +45,8 @@ case class Request(
       '}'
   }
 
+}
+
+object Request {
+  val cycleTriedTimes = "_cycle_tried_times"
 }

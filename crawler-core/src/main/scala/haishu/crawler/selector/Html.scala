@@ -7,9 +7,7 @@ import org.jsoup.nodes.Document
 /**
  * Created by hldev on 7/21/17.
  */
-class Html(val document: Document) extends HtmlNode(Seq(document)) {
-
-}
+class Html(val document: Document) extends HtmlNode(Seq(document))
 
 object Html {
 

@@ -1,20 +1,12 @@
-import haishu.crawler.selector.Html
-import okhttp3.{OkHttpClient, Request}
-import org.jsoup.Jsoup
-import collection.JavaConverters._
+import akka.http.scaladsl.Http
+import akka.http.scaladsl.model.HttpRequest
+import akka.stream.scaladsl.Source
+import io.circe.syntax._
 
-val url = "http://www.stats.gov.cn/tjsj/zxfb/"
+val m = Map("title" -> "23", "onet" -> 1)
 
-val doc = Jsoup.connect(url).execute().parse()
+val s = m.asJson
 
-doc.select(".center_list > ul > li > span")
 
-val html = new Html(doc)
 
-html.css(".center_list").links().regex(""".*\d{8}_\d{7}.html$""").all()
 
-val url1 = "http://cq.spb.gov.cn/zcfg/index.html"
-
-val doc1 = Jsoup.connect(url1).execute().parse()
-
-doc1.select("#submenu111").select("a").first().attr("abs:href")

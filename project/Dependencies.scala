@@ -35,5 +35,10 @@ object Dependencies {
     "com.squareup.okhttp3" % "okhttp-urlconnection" % versionOkhttp
   )
 
+  private val circeVersion = "0.8.0"
+  val _circe = Seq(
+    "io.circe" %% "circe-core"
+  ).map(_ % circeVersion)
+
 }
 

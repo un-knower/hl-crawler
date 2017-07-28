@@ -6,9 +6,10 @@ import org.jsoup.nodes.{Document, Element}
  * Created by hldev on 7/21/17.
  */
 class HtmlNode(elements: Seq[Element]) extends AbstractSelectable {
-  lazy val sourceTexts = elements.map(_.toString)
 
-  override def links() = selectElements(LinksSelector())
+  lazy val sourceTexts: Seq[String] = elements.map(_.toString)
+
+  lazy val links: Selectable = selectElements(LinksSelector())
 
   protected def selectElements(elementSelector: BaseElementSelector): Selectable = {
     if (!elementSelector.hasAttribute) {

@@ -7,7 +7,6 @@ abstract class AbstractSelectable extends Selectable {
 
   protected def sourceTexts(): Seq[String]
 
-  // no good ways to collect non-null values
   protected def select(selector: Selector, strings: Seq[String]): Selectable = {
     val results = strings.map(selector.select).filter(_ != null)
     new PlainText(results)
@@ -20,7 +19,7 @@ abstract class AbstractSelectable extends Selectable {
 
   override def select(selector: Selector): Selectable = select(selector, sourceTexts())
 
-  override def selectSeq(selector: Selector): Selectable = select(selector, sourceTexts())
+  override def selectSeq(selector: Selector): Selectable = selectSeq(selector, sourceTexts())
 
   override def regex(regex: String): Selectable = {
     val regexSelector = Selectors.regex(regex)

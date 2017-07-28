@@ -17,7 +17,7 @@ class CountableThreadPool(
 
   private val condition = reentrantLock.newCondition()
 
-  def threadAlive = _threadAlive.get()
+  def threadAlive: Int = _threadAlive.get()
 
   def execute(runnable: Runnable): Unit = {
 
@@ -37,18 +37,16 @@ class CountableThreadPool(
     }
 
     _threadAlive.incrementAndGet()
-    executorService.execute(new Runnable {
-      override def run() = {
+    executorService.execute(() => {
+      try {
+        runnable.run()
+      } finally {
         try {
-          runnable.run()
+          reentrantLock.lock()
+          _threadAlive.decrementAndGet()
+          condition.signal()
         } finally {
-          try {
-            reentrantLock.lock()
-            _threadAlive.decrementAndGet()
-            condition.signal()
-          } finally {
-            reentrantLock.unlock()
-          }
+          reentrantLock.unlock()
         }
       }
     })

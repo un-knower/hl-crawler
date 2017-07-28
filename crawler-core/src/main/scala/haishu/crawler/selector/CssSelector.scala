@@ -37,15 +37,15 @@ class CssSelector(selectorText: String, attrName: String) extends BaseElementSel
   }
 
   override def selectElement(element: Element): Element = {
-    val elements = element.select(selectorText).asScala
-    elements.headOption.getOrElse(null)
+    val elements = selectElements(element)
+    if (elements.isEmpty) null else elements.head
   }
 
   override def selectElements(element: Element): Seq[Element] = {
     element.select(selectorText).asScala
   }
 
-  override def hasAttribute(): Boolean = attrName != null
+  override def hasAttribute: Boolean = attrName != null
 }
 
 object CssSelector {

@@ -6,7 +6,7 @@ import haishu.crawler.processor.PageProcessor
 
 object StatsZxfbExample extends App {
 
-  val s = Site("http://www.stats.gov.cn").sleepTime(100)
+  val s = Site("http://www.stats.gov.cn").sleepTime(100).cycleRetryTimes(2)
 
   class ZxfbPageProcessor extends PageProcessor {
 
@@ -14,7 +14,7 @@ object StatsZxfbExample extends App {
 
     override def process(page: Page): Unit = {
 
-      page.addTargetRequests(page.html.css(".center_list").links().all())
+      page.addTargetRequests(page.html.css(".center_list").links().regex(""".*\d{8}_\d{7}.html$""").all())
 
       page.resultItems.put("title", page.html.css(".xilan_tit", "text").get())
       page.resultItems.put("source", page.html.css("font[style=color:#1f5781;margin-right:50px;]", "text").get())
@@ -33,9 +33,10 @@ object StatsZxfbExample extends App {
 
   val url = "http://www.stats.gov.cn/tjsj/zxfb/"
 
+  val url2 = Seq("http://gitlab.hualongdata.com/", url)
+
   Spider(new ZxfbPageProcessor)
-    .pipeline(ConsolePipeline())
-    .thread(4)
-    .startUrls(url)
+    .thread(40)
+    .startUrls(url2 ++ urls)
     .run()
 }

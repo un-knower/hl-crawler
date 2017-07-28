@@ -19,8 +19,9 @@ lazy val crawlerCore = project("crawler-core")
   .dependsOn(crawlerCommon)
   .settings(
     libraryDependencies ++= Seq(
-      _akkaStream
-    ) ++ _okhttp
+      _akkaStream) ++
+      _circe ++
+      _okhttp
   )
 
 lazy val crawlerCommon = project("crawler-common")

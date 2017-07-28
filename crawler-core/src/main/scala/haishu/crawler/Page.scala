@@ -16,7 +16,7 @@ case class Page(
 
   private val _resultItems = ResultItems(request)
 
-  // parse html if needed for performance
+  // lazy for Page.fail
   lazy val html: Html = Html(rawText, request.url)
 
   def resultItems: ResultItems = _resultItems
