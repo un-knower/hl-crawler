@@ -2,7 +2,7 @@ package haishu.crawler
 
 case class ResultItems private[crawler] (
     var request: Request,
-    var skip: Boolean = false) {
+    var isSkip: Boolean = false) {
 
   private var fields = Map[String, Any]()
 
@@ -18,7 +18,7 @@ case class ResultItems private[crawler] (
   def getAll: Map[String, Any] = fields
 
   override def toString: String =
-    s"ResultItems{fields=$fields, request=$request, skip=$skip}"
+    s"ResultItems{fields=$fields, request=$request, skip=$isSkip}"
 
 }
 

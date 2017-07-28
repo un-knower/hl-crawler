@@ -5,7 +5,15 @@ import io.circe.syntax._
 
 val m = Map("title" -> "23", "onet" -> 1)
 
-val s = m.asJson
+val ru = scala.reflect.runtime.universe
+
+case class Foo(x: Int)
+
+case class Bar(x: Int)
+
+val t = ru.typeOf[Foo]
+
+val t2 = ru.typeOf[Bar]
 
 
 

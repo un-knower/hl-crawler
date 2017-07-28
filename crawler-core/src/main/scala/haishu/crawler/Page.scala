@@ -1,5 +1,7 @@
 package haishu.crawler
 
+import javax.management.Query
+
 import haishu.crawler.selector.{Html, Selectable}
 import haishu.crawler.util.HttpConstant.StatusCode
 import haishu.crawler.util.UrlUtils.canonicalizeUrl
@@ -21,32 +23,39 @@ case class Page(
 
   def resultItems: ResultItems = _resultItems
 
-  def skip(s: Boolean): Page = {
-    resultItems.skip = true
+  def skip(): Page = {
+    resultItems.isSkip = true
     this
   }
 
-  def putField[T](field: String, value: T): Unit = {
-    resultItems.put(field, value)
+  def css(query: String): Selectable = html.css(query)
+
+  def css(query: String, attr: String): Selectable = html.css(query, attr)
+
+  def regex(expr: String): Selectable = html.regex(expr)
+
+  def put[T](field: String, value: T): Unit = value match {
+    case s: Selectable =>
+      s.get().foreach { v =>
+        resultItems.put(field, v)
+      }
+    case _ => resultItems.put[T](field, value)
   }
 
   def addTargetRequests(urls: Seq[String]): Unit = {
     for (s <- urls) {
       if (!(StringUtils.isBlank(s) || s.equals("#") || s.startsWith("javascript:"))) {
-        val req = Request(canonicalizeUrl(url.toString, s))
+        val req = Request(canonicalizeUrl(url.get().orNull, s))
         targetRequests :+= req
       }
     }
   }
 
-  /*def addTargetRequest(requests: Seq[String], priority: Long): Unit = {
-    for (s <- requests) {
-      if (!(StringUtils.isBlank(s) || s.equals("#") || s.startsWith("javascript:"))) {
-        val req = new Request(UrlUtils.canonicalizeUrl(s, url.toString())).priority(priority)
-        targetRequests += req
-      }
-    }
-  }*/
+  def follow(url: String, rest: String*): Unit = follow(url +: rest)
+
+  def follow(urls: Seq[String]): Unit = addTargetRequests(urls)
+
+  def follow(s: Selectable): Unit = follow(s.all())
 
   def addTargetRequest(requestString: String): Unit = addTargetRequests(Seq(requestString))
 

@@ -21,6 +21,8 @@ object Commons {
       "-Ywarn-dead-code"
       // "-Xfuture" // breaks => Unit implicits
     ),
+    scalacOptions in (Compile, console) ~= (_ filterNot (_ == "-Xlint")),
+    scalacOptions in (Test, console) := (scalacOptions in (Compile, console)).value,
     javacOptions ++= Seq("-source", "1.8", "-target", "1.8", "-encoding", "UTF-8", "-Xlint:unchecked"),
     version := "1.0.0",
     shellPrompt := { s => Project.extract(s).currentProject.id + " > " },

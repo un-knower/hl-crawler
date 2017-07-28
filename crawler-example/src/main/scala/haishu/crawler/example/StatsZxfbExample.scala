@@ -3,26 +3,49 @@ package haishu.crawler.example
 import haishu.crawler.pipeline.ConsolePipeline
 import haishu.crawler.{Page, Site, Spider}
 import haishu.crawler.processor.PageProcessor
+import haishu.crawler.selector.Selectable
 
 object StatsZxfbExample extends App {
 
-  val s = Site("http://www.stats.gov.cn").sleepTime(100).cycleRetryTimes(2)
+  trait Formatter[T] {
+    def format(s: String): T
+  }
+
+  implicit val string2Int = new Formatter[Int] {
+    def format(s: String) = s.toInt
+  }
+
+  implicit class HlStringFormatter(s: String) {
+    def as[T: Formatter]: T = implicitly[Formatter[T]].format(s)
+  }
+
+  implicit class SelectableFormatter(s: Selectable) {
+    def as[T: Formatter] = s.get().get.as[T]
+  }
+
+  case class Article(title: String, content: String)
+
+  case class Person(name: String, age: Int)
+
+  case class Foo(x1: Int, x2: String, x3: Double, x4: Byte)
 
   class ZxfbPageProcessor extends PageProcessor {
 
-    override def site: Site = s
+    val site = Site("http://www.stats.gov.cn").sleepTime(100).cycleRetryTimes(2)
 
-    override def process(page: Page): Unit = {
+    override def process(p: Page) = {
 
-      page.addTargetRequests(page.html.css(".center_list").links().regex(""".*\d{8}_\d{7}.html$""").all())
+      p.follow(p.css(".center_list").links().regex(""".*\d{8}_\d{7}.html$"""))
 
-      page.resultItems.put("title", page.html.css(".xilan_tit", "text").get())
-      page.resultItems.put("source", page.html.css("font[style=color:#1f5781;margin-right:50px;]", "text").get())
-      page.resultItems.put("content", page.html.css(".TRS_Editor").get())
+      val title = p.css(".xilan_tite", "text")
 
-      if (page.resultItems.get("title").isEmpty) page.skip(true)
+      val content = p.css(".TRS_Editor")
 
-      println(page.resultItems.get("title"))
+      if (!title.isMatch) p.skip()
+
+      p.put("title", title)
+      p.put("source", p.css("font[style=color:#1f5781;margin-right:50px;]", "text"))
+      p.put("content", p.css(".TRS_Editor"))
 
     }
 

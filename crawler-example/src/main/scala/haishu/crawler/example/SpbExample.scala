@@ -9,23 +9,24 @@ import haishu.crawler.{Page, Site, Spider}
  */
 object SpbExample extends App {
 
-  val s = Site("http://cq.spb.gov.cn").sleepTime(1000)
-
   class SpbPageProcessor extends PageProcessor {
-    override def process(page: Page) = {
 
-      val links = page.html.css("#submenu111").links().all()
-      page.addTargetRequests(links)
+    val site = Site("http://cq.spb.gov.cn").sleepTime(1000)
 
-      page.putField("title", page.html.css(".flo.boxcenter > div", "text").get())
-      page.putField("content", page.html.css(".dlll").get())
+    override def process(p: Page) = {
 
-      if (page.resultItems.get("title").isEmpty) page.skip(true)
+      p.follow(p.css("#submenu111").links())
 
-      println(page.resultItems.get[String]("title"))
+      val title = p.css(".flo.boxcenter > div", "text")
+
+      if (!title.isMatch) p.skip()
+
+      p.put("title", title)
+      p.put("content", p.css(".dlll"))
+
+      println(title.get())
     }
 
-    override def site = s
   }
 
   val startUrls = Seq(

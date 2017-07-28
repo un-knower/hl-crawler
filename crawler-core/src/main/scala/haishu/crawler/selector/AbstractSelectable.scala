@@ -36,15 +36,13 @@ abstract class AbstractSelectable extends Selectable {
     select(replaceSelector, sourceTexts())
   }
 
-  override def get(): String = if (all().isEmpty) null else all().head
+  override def get(): Option[String] = all().headOption
 
   def firstSourceText: String = {
     if (sourceTexts().isEmpty) null else sourceTexts().head
   }
 
   override def all(): Seq[String] = sourceTexts()
-
-  override def toString: String = get()
 
   override def isMatch: Boolean = sourceTexts().nonEmpty
 }

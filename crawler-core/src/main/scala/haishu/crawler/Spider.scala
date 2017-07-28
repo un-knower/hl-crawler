@@ -171,6 +171,9 @@ class Spider private (
     stat.set(Stopped)
     _threadPool.shutdown()
     log.info(s"Spider $uuid closed! ${pageCount.get} pages downloaded.")
+    val endTime = new Date()
+
+    log.info(s"Start at $startTime, end at $endTime, total cost: ")
   }
 
   def test(urls: String*): Unit = {
@@ -188,7 +191,7 @@ class Spider private (
     if (site.acceptStatCodes.contains(page.statusCode)) {
       _pageProcessor.process(page)
       extractAndAddRequests(page, spawnUrl)
-      if (!page.resultItems.skip) {
+      if (!page.resultItems.isSkip) {
         _pipelines.foreach(_.process(page.resultItems, this))
       }
     } else log.info(s"page status code error, page ${request.url} , code: ${page.statusCode}")
