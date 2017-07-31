@@ -34,6 +34,8 @@ case class Page(
 
   def regex(expr: String): Selectable = html.regex(expr)
 
+  def regex(expr: String, group: Int) = html.regex(expr, group)
+
   def put[T](field: String, value: T): Unit = value match {
     case s: Selectable =>
       s.get().foreach { v =>

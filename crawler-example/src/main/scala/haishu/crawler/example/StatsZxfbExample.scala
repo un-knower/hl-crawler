@@ -1,5 +1,9 @@
 package haishu.crawler.example
 
+import java.time.{Instant, ZoneId, ZonedDateTime}
+import java.time.format.DateTimeFormatter
+import java.util.{Date, Locale}
+
 import haishu.crawler.pipeline.ConsolePipeline
 import haishu.crawler.{Page, Site, Spider}
 import haishu.crawler.processor.PageProcessor
@@ -11,8 +15,22 @@ object StatsZxfbExample extends App {
     def format(s: String): T
   }
 
-  implicit val string2Int = new Formatter[Int] {
-    def format(s: String) = s.toInt
+  def gen[T](body: String => T) = new Formatter[T] {
+    override def format(s: String) = body(s)
+  }
+
+  implicit val string2String = gen[String](identity)
+
+  implicit val string2Double = gen[Double](_.toDouble)
+
+  implicit val string2Int = gen[Int](_.toInt)
+
+  implicit val string2Long = gen[Long](_.toLong)
+
+  implicit val string2Date = gen[Date] { s =>
+    val timeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm", Locale.CHINA).withZone(ZoneId.systemDefault())
+    val zdt = ZonedDateTime.from(timeFormatter.parse(s))
+    Date.from(zdt.toInstant)
   }
 
   implicit class HlStringFormatter(s: String) {
@@ -23,29 +41,39 @@ object StatsZxfbExample extends App {
     def as[T: Formatter] = s.get().get.as[T]
   }
 
-  case class Article(title: String, content: String)
+  def collect[T1: Formatter, T2: Formatter, T3: Formatter, P](constructor: (T1, T2, T3) => P, field1: Selectable, field2: Selectable, field3: Selectable): P =
+    constructor(
+      field1.as[T1],
+      field2.as[T2],
+      field3.as[T3]
+    )
 
-  case class Person(name: String, age: Int)
-
-  case class Foo(x1: Int, x2: String, x3: Double, x4: Byte)
+  case class Article(title: String, content: String, publishedAt: Date)
 
   class ZxfbPageProcessor extends PageProcessor {
 
-    val site = Site("http://www.stats.gov.cn").sleepTime(100).cycleRetryTimes(2)
+    val site = Site("http://www.stats.gov.cn").sleepTime(200).cycleRetryTimes(2)
 
     override def process(p: Page) = {
 
       p.follow(p.css(".center_list").links().regex(""".*\d{8}_\d{7}.html$"""))
 
-      val title = p.css(".xilan_tite", "text")
+      val title = p.css(".xilan_tit", "text")
 
       val content = p.css(".TRS_Editor")
 
+      val pulishedAt = p.css("font[style=float:left;width:620px;text-align:right;margin-right:60px;]").regex("""(?s)发布时间：(.*)</font>""", 1)
+      println(pulishedAt.get())
       if (!title.isMatch) p.skip()
-
-      p.put("title", title)
-      p.put("source", p.css("font[style=color:#1f5781;margin-right:50px;]", "text"))
-      p.put("content", p.css(".TRS_Editor"))
+      else {
+        val a = collect(
+          Article,
+          title,
+          content,
+          pulishedAt
+        )
+        println(a)
+      }
 
     }
 
@@ -60,6 +88,6 @@ object StatsZxfbExample extends App {
 
   Spider(new ZxfbPageProcessor)
     .thread(40)
-    .startUrls(url2 ++ urls)
+    .startUrls(url)
     .run()
 }
