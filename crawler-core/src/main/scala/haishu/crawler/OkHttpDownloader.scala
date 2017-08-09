@@ -1,10 +1,9 @@
 package haishu.crawler
 
 import java.io.IOException
-import java.nio.charset.Charset
 import java.util.concurrent.TimeUnit
 
-import Messages.Download
+import Messages.{Download, RetryRequest, ScheduleRequest}
 import akka.actor.{Actor, Props}
 import okhttp3.{Call, Callback, Headers, MediaType, OkHttpClient, RequestBody, Request => OkRequest, Response => OkResponse}
 
@@ -28,8 +27,14 @@ class OkHttpDownloader(client: OkHttpClient) extends Actor {
           log.info(s"downloading success ${request.url}")
           engine ! response
         case Failure(e) =>
-          log.warning(s"download error ${request.url}", e)
-          engine ! akka.actor.Status.Failure(e)
+          log.warning(s"download error ${request.url} $e")
+          val retryTimes = request.meta.retryTimes
+          if (retryTimes == 0) {
+            request.errback(e)
+            engine ! akka.actor.Status.Failure(e)
+          } else {
+            engine ! RetryRequest(request)
+          }
       }
   }
 
@@ -63,6 +68,7 @@ object OkHttpDownloader {
 
   def buildClient(meta: RequestMeta, client: OkHttpClient) = {
     client.newBuilder()
+      .retryOnConnectionFailure(true)
       .connectTimeout(meta.downloadTimeout, TimeUnit.MILLISECONDS)
       .followRedirects(meta.redirect)
       .proxy(meta.proxy.orNull)
@@ -76,10 +82,13 @@ object OkHttpDownloader {
       else RequestBody.create(null, body)
     }
 
+    val cookiesStr = request.cookies.map { case (k, v) => s"$k=$v" }.mkString("; ")
+    val headersWithCookies = request.headers + ("Cookie" -> cookiesStr)
+
     new OkRequest.Builder()
       .url(request.url)
       .method(request.method, okRequestBody)
-      .headers(Headers.of(request.headers.asJava))
+      .headers(Headers.of(headersWithCookies.asJava))
       .build()
   }
 
@@ -90,10 +99,12 @@ object OkHttpDownloader {
     for (n <- okResponse.headers().names().asScala) {
       headers += (n -> okResponse.headers(n).asScala)
     }
+    val body = okResponse.body()
+    val bytes = body.bytes()
     HtmlResponse(
       okResponse.code(),
       headers,
-      okResponse.body().bytes(),
+      bytes,
       request,
       charset
     )

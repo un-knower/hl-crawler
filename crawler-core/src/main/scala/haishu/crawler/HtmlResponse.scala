@@ -15,12 +15,12 @@ case class HtmlResponse(
 
   private lazy val html = Html(text, request.url)
 
-  override def css(query: String): Selectable = html.css(query)
+  def css(query: String): Selectable = html.css(query)
 
-  override def css(query: String, attrName: String): Selectable = html.css(query, attrName)
+  def css(query: String, attrName: String): Selectable = html.css(query, attrName)
 
-  override def regex(expr: String): Selectable = html.regex(expr)
+  def regex(expr: String): Selectable = html.regex(expr)
 
-  override def regex(expr: String, group: Int): Selectable = html.regex(expr, group)
+  def regex(expr: String, group: Int): Selectable = html.regex(expr, group)
 
 }
