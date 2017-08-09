@@ -33,7 +33,8 @@ lazy val crawlerCommon = project("crawler-common")
       _commonsLang3,
       _scalaLogging,
       _logbackClassic
-    )
+    ) ++
+    _jackson
   )
 
 def project(name: String, subPath: String = "") =
