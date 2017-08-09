@@ -12,7 +12,8 @@ lazy val crawlerExample = project("crawler-example")
   .settings(
     libraryDependencies ++= Seq(
       _akkaHttp
-    )
+    ),
+    connectInput in run := true
   )
 
 lazy val crawlerCore = project("crawler-core")

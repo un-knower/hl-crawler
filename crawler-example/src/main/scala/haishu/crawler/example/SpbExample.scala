@@ -1,3 +1,4 @@
+/*
 package haishu.crawler.example
 
 import haishu.crawler.pipeline.ResultItemsCollectorPipeline
@@ -38,3 +39,4 @@ object SpbExample extends App {
   Spider(new SpbPageProcessor).addUrls(startUrls).thread(50).run()
 
 }
+*/
