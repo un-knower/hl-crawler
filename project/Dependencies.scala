@@ -40,5 +40,14 @@ object Dependencies {
     "io.circe" %% "circe-core"
   ).map(_ % circeVersion)
 
+  private val jacksonVersion = "2.8.8"
+  val _jackson = Seq(
+    "com.fasterxml.jackson.datatype" % "jackson-datatype-jdk8" % jacksonVersion,
+    "com.fasterxml.jackson.datatype" % "jackson-datatype-jsr310" % jacksonVersion,
+    "com.fasterxml.jackson.module" % "jackson-module-parameter-names" % jacksonVersion,
+    "com.fasterxml.jackson.module" %% "jackson-module-scala" % jacksonVersion
+  )
+
+
 }
 

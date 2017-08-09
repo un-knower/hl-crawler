@@ -3,7 +3,7 @@ package haishu.crawler
 import akka.actor.{Actor, ActorRef, Props}
 import haishu.crawler.Messages.{ParseResponse, ProcessItem, ScheduleRequest}
 
-class Spider extends Actor {
+class Spider extends BaseActor {
 
   def receive = {
     case ParseResponse(response) =>

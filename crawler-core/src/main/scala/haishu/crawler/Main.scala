@@ -1,6 +1,6 @@
 package haishu.crawler
 
-import akka.actor.{ActorRef, ActorSystem}
+import akka.actor.ActorSystem
 import haishu.crawler.Messages.ScheduleRequest
 import okhttp3.OkHttpClient
 

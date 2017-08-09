@@ -1,9 +1,9 @@
 package haishu.crawler
 
-import akka.actor.{Actor, Cancellable, Props}
+import akka.actor.{Cancellable, Props}
 import haishu.crawler.Messages._
+import haishu.crawler.pipeline.{ItemPipeline, Pipeline}
 import okhttp3.OkHttpClient
-import pipeline.{ItemPipeline, Pipeline}
 
 import scala.concurrent.duration._
 
@@ -13,13 +13,7 @@ object Engine {
 
 }
 
-class Engine(pipelines: Seq[Pipeline])(implicit client: OkHttpClient) extends Actor {
-
-  import context.system
-
-  import context.dispatcher
-
-  val log = system.log
+class Engine(pipelines: Seq[Pipeline])(implicit client: OkHttpClient) extends BaseActor {
 
   val scheduler = context.actorOf(Scheduler.props(self), "scheduler")
 
@@ -41,6 +35,7 @@ class Engine(pipelines: Seq[Pipeline])(implicit client: OkHttpClient) extends Ac
   }
 
   override def postStop() = {
+    pipelines.foreach(_.onClose())
     timer.cancel()
     log.info(s"Job ${self.path.name} complete")
   }
@@ -61,6 +56,7 @@ class Engine(pipelines: Seq[Pipeline])(implicit client: OkHttpClient) extends Ac
 
     case ProcessItem(item) =>
       itemPipelines.headOption.foreach(_ ! ProcessItem(item))
+
     case ProcessItemNext(item) =>
       val nextIndex = itemPipelines.indexOf(sender()) + 1
       if (nextIndex < pipelines.length) itemPipelines(nextIndex) ! ProcessItem(item)

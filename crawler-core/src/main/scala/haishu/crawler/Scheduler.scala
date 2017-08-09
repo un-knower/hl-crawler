@@ -13,9 +13,7 @@ object Scheduler {
 
 }
 
-class Scheduler(engine: ActorRef) extends Actor {
-
-  val log = context.system.log
+class Scheduler(engine: ActorRef) extends BaseActor {
 
   val queue = new LinkedBlockingDeque[Request]()
 

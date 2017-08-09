@@ -12,12 +12,9 @@ import scala.collection.JavaConverters._
 import scala.concurrent.{Future, Promise}
 import scala.util.{Failure, Success}
 
-class OkHttpDownloader(client: OkHttpClient) extends Actor {
+class OkHttpDownloader(client: OkHttpClient) extends BaseActor {
 
   import OkHttpDownloader._
-  import context.dispatcher
-
-  val log = context.system.log
 
   override def receive = {
     case Download(request) =>

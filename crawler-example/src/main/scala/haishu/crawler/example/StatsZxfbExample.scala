@@ -1,12 +1,10 @@
 package haishu.crawler.example
 
-import haishu.crawler.Main
-import haishu.crawler.pipeline.{ConsolePipeline, SingleFilePipeline}
-import haishu.crawler._
+import haishu.crawler.{Main, _}
+import haishu.crawler.pipeline.JsonPipeline
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.io.StdIn
-import scala.util.{Failure, Success}
 
 object StatsZxfbExample extends App {
 
@@ -20,7 +18,7 @@ object StatsZxfbExample extends App {
       "http://www.stats.gov.cn/tjsj/zxfb/"
     )
 
-    override val pipelines = Seq(SingleFilePipeline("/home/hldev/Shen/zxfb"))
+    override val pipelines = Seq(JsonPipeline("/home/hldev/test.txt"))
 
     def parse(r: Response) = {
 
