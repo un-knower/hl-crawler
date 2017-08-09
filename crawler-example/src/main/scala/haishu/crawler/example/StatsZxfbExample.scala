@@ -1,10 +1,12 @@
 package haishu.crawler.example
 
-import haishu.crawler.{Main, _}
-import haishu.crawler.pipeline.JsonPipeline
+import haishu.crawler.Main
+import haishu.crawler.pipeline.{ConsolePipeline, SingleFilePipeline}
+import haishu.crawler._
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.io.StdIn
+import scala.util.{Failure, Success}
 
 object StatsZxfbExample extends App {
 
@@ -15,10 +17,12 @@ object StatsZxfbExample extends App {
     val name = "zxfb"
 
     val startUrls = Seq(
-      "http://www.stats.gov.cn/tjsj/zxfb/"
+      "http://www.stats.gov.cn/tjsj/zxfb/",
     )
 
-    override val pipelines = Seq(JsonPipeline("/home/hldev/test.txt"))
+    override val retryTimes = 3
+
+    override val pipelines = Seq(SingleFilePipeline("/home/hldev/Shen/zxfb"))
 
     def parse(r: Response) = {
 
@@ -32,9 +36,14 @@ object StatsZxfbExample extends App {
       val article = for {
         title <- r.css(".xilan_tit", "text").headOption()
         content <- r.css(".TRS_Editor").headOption()
-      //      } yield Map("title" -> title, "content" -> content)
-      } yield Article(title, content)
-      result(article.get)
+      } yield Map("title" -> title, "content" -> content)
+      article match {
+        case Some(m) => result(m)
+        case None =>
+          println(r.body.length)
+          println(new String(r.body, r.request.encoding))
+          throw new Exception(s"${r.url} parse error")
+      }
     }
 
   }
@@ -52,9 +61,6 @@ object StatsZxfbExample extends App {
 
   println("System terminate...")
 
-  Main.system.terminate().foreach { _ =>
-    Main.client.dispatcher().executorService().shutdown()
-    Main.client.connectionPool().evictAll()
-  }
+  Main.terminate()
 
 }

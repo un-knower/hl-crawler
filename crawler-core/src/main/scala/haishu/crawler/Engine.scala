@@ -1,9 +1,10 @@
 package haishu.crawler
 
-import akka.actor.{Cancellable, Props}
+import akka.actor.Status.Failure
+import akka.actor.{Actor, Cancellable, Props}
 import haishu.crawler.Messages._
-import haishu.crawler.pipeline.{ItemPipeline, Pipeline}
 import okhttp3.OkHttpClient
+import pipeline.{ItemPipeline, Pipeline}
 
 import scala.concurrent.duration._
 
@@ -13,7 +14,13 @@ object Engine {
 
 }
 
-class Engine(pipelines: Seq[Pipeline])(implicit client: OkHttpClient) extends BaseActor {
+class Engine(pipelines: Seq[Pipeline])(implicit client: OkHttpClient) extends Actor {
+
+  import context.system
+
+  import context.dispatcher
+
+  val log = system.log
 
   val scheduler = context.actorOf(Scheduler.props(self), "scheduler")
 
@@ -30,19 +37,25 @@ class Engine(pipelines: Seq[Pipeline])(implicit client: OkHttpClient) extends Ba
 
   var noRequestTimes = 0
 
+  var downloadSuccess = 0
+
+  var downloadFailAfterRetry = 0
+
   override def preStart() = {
     timer = system.scheduler.schedule(200.millis, 200.millis, scheduler, PollRequest)
   }
 
   override def postStop() = {
-    pipelines.foreach(_.onClose())
     timer.cancel()
-    log.info(s"Job ${self.path.name} complete")
+    log.info(s"Job ${self.path.name} complete. $downloadSuccess succeed and $downloadFailAfterRetry fail")
   }
 
   def receive = {
     case ScheduleRequest(request) =>
       scheduler ! request
+    case RetryRequest(request) =>
+      log.info(s"download retry ${request.url}")
+      scheduler ! request.retry
 
     case ReplyRequest(request) =>
       noRequestTimes = 0
@@ -52,15 +65,17 @@ class Engine(pipelines: Seq[Pipeline])(implicit client: OkHttpClient) extends Ba
       if (noRequestTimes >= 10) context.stop(self)
 
     case r: Response =>
-      Debugger(r)
       spider ! ParseResponse(r)
+      downloadSuccess += 1
 
     case ProcessItem(item) =>
       itemPipelines.headOption.foreach(_ ! ProcessItem(item))
-
     case ProcessItemNext(item) =>
       val nextIndex = itemPipelines.indexOf(sender()) + 1
       if (nextIndex < pipelines.length) itemPipelines(nextIndex) ! ProcessItem(item)
+
+    case Failure(e) =>
+      downloadFailAfterRetry += 1
   }
 
 }
