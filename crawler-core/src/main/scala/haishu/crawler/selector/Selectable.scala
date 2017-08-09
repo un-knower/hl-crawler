@@ -34,4 +34,6 @@ trait Selectable {
   def select(selector: Selector): Selectable
 
   def selectSeq(selector: Selector): Selectable
+
+  override def toString = all().toString()
 }

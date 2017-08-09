@@ -5,7 +5,6 @@ import java.nio.charset.Charset
 import scala.collection.immutable
 import haishu.crawler.util.UrlUtils.canonicalizeUrl
 import haishu.crawler.selector.Selectable
-import haishu.crawler.selector.Selectable
 
 trait Response {
 
@@ -38,7 +37,7 @@ trait Response {
     cookies: Map[String, String] = Map(),
     meta: RequestMeta = request.meta,
     encoding: Charset = request.encoding,
-    errback: Exception => Unit = PartialFunction.empty) =
+    errback: Throwable => Unit = Request.defaultErrBack) =
     Request(
       canonicalizeUrl(this.url, url),
       callback,
