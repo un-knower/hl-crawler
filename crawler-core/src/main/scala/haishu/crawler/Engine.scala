@@ -52,6 +52,7 @@ class Engine(pipelines: Seq[Pipeline])(implicit client: OkHttpClient) extends Ba
       if (noRequestTimes >= 10) context.stop(self)
 
     case r: Response =>
+      Debugger(r)
       spider ! ParseResponse(r)
 
     case ProcessItem(item) =>

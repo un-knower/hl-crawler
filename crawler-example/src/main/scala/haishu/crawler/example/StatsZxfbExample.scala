@@ -32,7 +32,8 @@ object StatsZxfbExample extends App {
       val article = for {
         title <- r.css(".xilan_tit", "text").headOption()
         content <- r.css(".TRS_Editor").headOption()
-      } yield Map("title" -> title, "content" -> content)
+      //      } yield Map("title" -> title, "content" -> content)
+      } yield Article(title, content)
       result(article.get)
     }
 
