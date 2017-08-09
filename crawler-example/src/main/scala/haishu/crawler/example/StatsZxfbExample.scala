@@ -1,80 +1,41 @@
 package haishu.crawler.example
 
-import java.time.{Instant, ZoneId, ZonedDateTime}
-import java.time.format.DateTimeFormatter
-import java.util.{Date, Locale}
+import haishu.crawler.Main
+import haishu.crawler.pipeline.{ConsolePipeline, SingleFilePipeline}
+import haishu.crawler._
 
-import haishu.crawler.pipeline.ConsolePipeline
-import haishu.crawler.{Page, Site, Spider}
-import haishu.crawler.processor.PageProcessor
-import haishu.crawler.selector.Selectable
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.io.StdIn
+import scala.util.{Failure, Success}
 
 object StatsZxfbExample extends App {
 
-  trait Formatter[T] {
-    def format(s: String): T
-  }
+  case class Article(title: String, content: String)
 
-  def gen[T](body: String => T) = new Formatter[T] {
-    override def format(s: String) = body(s)
-  }
+  class ZxfbJob extends SimpleJob {
 
-  implicit val string2String = gen[String](identity)
+    val name = "zxfb"
 
-  implicit val string2Double = gen[Double](_.toDouble)
-
-  implicit val string2Int = gen[Int](_.toInt)
-
-  implicit val string2Long = gen[Long](_.toLong)
-
-  implicit val string2Date = gen[Date] { s =>
-    val timeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm", Locale.CHINA).withZone(ZoneId.systemDefault())
-    val zdt = ZonedDateTime.from(timeFormatter.parse(s))
-    Date.from(zdt.toInstant)
-  }
-
-  implicit class HlStringFormatter(s: String) {
-    def as[T: Formatter]: T = implicitly[Formatter[T]].format(s)
-  }
-
-  implicit class SelectableFormatter(s: Selectable) {
-    def as[T: Formatter] = s.get().get.as[T]
-  }
-
-  def collect[T1: Formatter, T2: Formatter, T3: Formatter, P](constructor: (T1, T2, T3) => P, field1: Selectable, field2: Selectable, field3: Selectable): P =
-    constructor(
-      field1.as[T1],
-      field2.as[T2],
-      field3.as[T3]
+    val startUrls = Seq(
+      "http://www.stats.gov.cn/tjsj/zxfb/"
     )
 
-  case class Article(title: String, content: String, publishedAt: Date)
+    override val pipelines = Seq(SingleFilePipeline("/home/hldev/Shen/zxfb"))
 
-  class ZxfbPageProcessor extends PageProcessor {
+    def parse(r: Response) = {
 
-    val site = Site("http://www.stats.gov.cn").sleepTime(200).cycleRetryTimes(2)
+      val links = r.css(".center_list").links().regex(""".*\d{8}_\d{7}.html$""").all().map(r.follow(_, parseItem))
 
-    override def process(p: Page) = {
+      collectRequests(links)
 
-      p.follow(p.css(".center_list").links().regex(""".*\d{8}_\d{7}.html$"""))
+    }
 
-      val title = p.css(".xilan_tit", "text")
-
-      val content = p.css(".TRS_Editor")
-
-      val pulishedAt = p.css("font[style=float:left;width:620px;text-align:right;margin-right:60px;]").regex("""(?s)发布时间：(.*)</font>""", 1)
-      println(pulishedAt.get())
-      if (!title.isMatch) p.skip()
-      else {
-        val a = collect(
-          Article,
-          title,
-          content,
-          pulishedAt
-        )
-        println(a)
-      }
-
+    def parseItem(r: Response) = {
+      val article = for {
+        title <- r.css(".xilan_tit", "text").headOption()
+        content <- r.css(".TRS_Editor").headOption()
+      } yield Map("title" -> title, "content" -> content)
+      result(article.get)
     }
 
   }
@@ -86,8 +47,15 @@ object StatsZxfbExample extends App {
 
   val url2 = Seq("http://gitlab.hualongdata.com/", url)
 
-  Spider(new ZxfbPageProcessor)
-    .thread(40)
-    .startUrls(url)
-    .run()
+  Main.submit(new ZxfbJob())
+
+  StdIn.readLine("Press enter to exit...\n")
+
+  println("System terminate...")
+
+  Main.system.terminate().foreach { _ =>
+    Main.client.dispatcher().executorService().shutdown()
+    Main.client.connectionPool().evictAll()
+  }
+
 }

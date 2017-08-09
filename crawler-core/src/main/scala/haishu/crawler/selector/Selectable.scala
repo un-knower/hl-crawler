@@ -21,7 +21,9 @@ trait Selectable {
 
   def replace(regex: String, replacement: String): Selectable
 
-  def get(): Option[String]
+  def headOption(): Option[String]
+
+  def head(): String = headOption().get
 
   def isMatch: Boolean
 

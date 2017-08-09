@@ -1,7 +1,10 @@
 package haishu.crawler.selector
 
+import java.nio.charset.Charset
+
 import org.jsoup.helper.StringUtil
 import org.jsoup.nodes.Element
+
 import scala.collection.JavaConverters._
 /**
  * Created by hldev on 7/21/17.
@@ -14,8 +17,11 @@ class LinksSelector extends BaseElementSelector {
   override def selectSeq(element: Element): Seq[String] = {
     val elements = element.select("a")
     elements.asScala.map { elem =>
-      if (StringUtil.isBlank(elem.baseUri())) elem.attr("abs:href")
-      else elem.attr("href")
+      if (StringUtil.isBlank(elem.baseUri())) {
+        elem.attr("abs:href")
+      } else {
+        elem.attr("href")
+      }
     }
   }
 
