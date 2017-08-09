@@ -383,3 +383,5 @@ gradle-app.setting
 hs_err_pid*
 
 target/
+
+crawler-example/src/main/scala/haishu/crawler/example/FeatureTest.sc

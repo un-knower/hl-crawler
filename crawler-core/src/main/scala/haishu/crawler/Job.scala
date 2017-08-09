@@ -35,6 +35,8 @@ trait SimpleJob {
 
   def startUrls: Seq[String]
 
+  def retryTimes = 0
+
   def startRequests: Seq[Request] = Seq()
 
   def parse(response: Response): immutable.Seq[Either[Request, Item]]
@@ -43,7 +45,11 @@ trait SimpleJob {
 
   def build() = {
     val requests = startUrls.map { url =>
-      Request(url, parse)
+      Request(
+        url = url,
+        callback = parse,
+        meta = RequestMeta(retryTimes = retryTimes)
+      )
     }
     new Job(
       name,

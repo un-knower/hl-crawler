@@ -17,8 +17,10 @@ object StatsZxfbExample extends App {
     val name = "zxfb"
 
     val startUrls = Seq(
-      "http://www.stats.gov.cn/tjsj/zxfb/"
+      "http://www.stats.gov.cn/tjsj/zxfb/",
     )
+
+    override val retryTimes = 3
 
     override val pipelines = Seq(SingleFilePipeline("/home/hldev/Shen/zxfb"))
 
@@ -35,7 +37,13 @@ object StatsZxfbExample extends App {
         title <- r.css(".xilan_tit", "text").headOption()
         content <- r.css(".TRS_Editor").headOption()
       } yield Map("title" -> title, "content" -> content)
-      result(article.get)
+      article match {
+        case Some(m) => result(m)
+        case None =>
+          println(r.body.length)
+          println(new String(r.body, r.request.encoding))
+          throw new Exception(s"${r.url} parse error")
+      }
     }
 
   }
@@ -53,9 +61,6 @@ object StatsZxfbExample extends App {
 
   println("System terminate...")
 
-  Main.system.terminate().foreach { _ =>
-    Main.client.dispatcher().executorService().shutdown()
-    Main.client.connectionPool().evictAll()
-  }
+  Main.terminate()
 
 }

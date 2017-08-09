@@ -1,5 +1,6 @@
 package haishu.crawler
 
+import akka.actor.Status.Failure
 import akka.actor.{Actor, Cancellable, Props}
 import haishu.crawler.Messages._
 import okhttp3.OkHttpClient
@@ -36,18 +37,25 @@ class Engine(pipelines: Seq[Pipeline])(implicit client: OkHttpClient) extends Ac
 
   var noRequestTimes = 0
 
+  var downloadSuccess = 0
+
+  var downloadFailAfterRetry = 0
+
   override def preStart() = {
     timer = system.scheduler.schedule(200.millis, 200.millis, scheduler, PollRequest)
   }
 
   override def postStop() = {
     timer.cancel()
-    log.info(s"Job ${self.path.name} complete")
+    log.info(s"Job ${self.path.name} complete. $downloadSuccess succeed and $downloadFailAfterRetry fail")
   }
 
   def receive = {
     case ScheduleRequest(request) =>
       scheduler ! request
+    case RetryRequest(request) =>
+      log.info(s"download retry ${request.url}")
+      scheduler ! request.retry
 
     case ReplyRequest(request) =>
       noRequestTimes = 0
@@ -58,12 +66,16 @@ class Engine(pipelines: Seq[Pipeline])(implicit client: OkHttpClient) extends Ac
 
     case r: Response =>
       spider ! ParseResponse(r)
+      downloadSuccess += 1
 
     case ProcessItem(item) =>
       itemPipelines.headOption.foreach(_ ! ProcessItem(item))
     case ProcessItemNext(item) =>
       val nextIndex = itemPipelines.indexOf(sender()) + 1
       if (nextIndex < pipelines.length) itemPipelines(nextIndex) ! ProcessItem(item)
+
+    case Failure(e) =>
+      downloadFailAfterRetry += 1
   }
 
 }

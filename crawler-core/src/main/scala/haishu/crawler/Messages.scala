@@ -10,4 +10,5 @@ object Messages {
   case class ProcessItemNext(item: Item)
   case class ReplyRequest(request: Request)
   case object NoRequest
+  case class RetryRequest(request: Request)
 }
