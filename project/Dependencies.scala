@@ -48,6 +48,5 @@ object Dependencies {
     "com.fasterxml.jackson.module" %% "jackson-module-scala" % jacksonVersion
   )
 
-
 }
 

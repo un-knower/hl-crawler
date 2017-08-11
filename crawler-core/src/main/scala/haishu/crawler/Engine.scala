@@ -46,6 +46,7 @@ class Engine(pipelines: Seq[Pipeline])(implicit client: OkHttpClient) extends Ac
   }
 
   override def postStop() = {
+    pipelines.foreach(_.onClose())
     timer.cancel()
     log.info(s"Job ${self.path.name} complete. $downloadSuccess succeed and $downloadFailAfterRetry fail")
   }

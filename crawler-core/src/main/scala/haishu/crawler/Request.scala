@@ -20,9 +20,16 @@ case class Request(
     cookies: Map[String, String] = Map(),
     meta: RequestMeta = RequestMeta(),
     encoding: Charset = Charset.defaultCharset(),
-    errback: Throwable => Unit = Request.defaultErrBack) {
+    errback: Throwable => Unit = Request.defaultErrBack,
+    extra: Map[String, String] = Map()) {
 
   def body(str: String) = copy(body = str.getBytes(encoding))
+
+  def extra(key: String, value: String): Request = extra(Seq(key -> value))
+
+  def extra(kv: (String, String), kvs: (String, String)*): Request = extra(kv +: kvs)
+
+  def extra(kvs: Seq[(String, String)]): Request = copy(extra = extra ++ kvs)
 
   def retry = copy(meta = meta.retry)
 

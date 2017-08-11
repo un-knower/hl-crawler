@@ -13,7 +13,6 @@ object Debugger {
 
   def apply(obj: Any): Unit = log(obj)
 
-
   def log(obj: Any) = {
     val o = mapper.writeValueAsString(obj)
     val filePath = Paths.get(s"$path-${LocalDate.now()}.json")
@@ -22,7 +21,7 @@ object Debugger {
       Files.createFile(filePath)
     }
 
-    val str = "//" + LocalDateTime.now() + "\n" + o +"\n"
+    val str = "//" + LocalDateTime.now() + "\n" + o + "\n"
 
     Files.write(filePath, str.getBytes, StandardOpenOption.APPEND)
 

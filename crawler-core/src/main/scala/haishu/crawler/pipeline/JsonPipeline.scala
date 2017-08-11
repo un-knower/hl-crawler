@@ -17,7 +17,6 @@ class JsonPipeline(path: Path) extends Pipeline {
     Some(item)
   }
 
-
   override def onOpen(): Unit = {
     if (Files.notExists(path)) Files.createFile(path)
   }

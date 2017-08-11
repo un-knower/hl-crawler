@@ -1,6 +1,6 @@
 package haishu.crawler.example
 
-import haishu.crawler.Main
+import haishu.crawler.Crawler
 import haishu.crawler.pipeline.{ConsolePipeline, SingleFilePipeline}
 import haishu.crawler._
 
@@ -55,12 +55,12 @@ object StatsZxfbExample extends App {
 
   val url2 = Seq("http://gitlab.hualongdata.com/", url)
 
-  Main.submit(new ZxfbJob())
+  Crawler.submit(new ZxfbJob())
 
   StdIn.readLine("Press enter to exit...\n")
 
   println("System terminate...")
 
-  Main.terminate()
+  Crawler.terminate()
 
 }

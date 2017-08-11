@@ -23,4 +23,6 @@ case class HtmlResponse(
 
   def regex(expr: String, group: Int): Selectable = html.regex(expr, group)
 
+  def links = html.links
+
 }

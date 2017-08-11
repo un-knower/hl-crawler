@@ -6,7 +6,7 @@ import okhttp3.OkHttpClient
 
 import scala.util.Success
 
-object Main {
+object Crawler {
 
   @volatile private var inited = false
 
@@ -41,9 +41,14 @@ object Main {
 
     }
 
-  def test(url: String) = {
+  def test(url: String): Response = {
+    val request = Request(url, PartialFunction.empty)
+    test(request)
+  }
+
+  def test(request: Request): Response = {
     init()
-    val response = OkHttpDownloader.download(client, Request(url, PartialFunction.empty))
+    val response = OkHttpDownloader.download(client, request)
     terminate()
     response
   }

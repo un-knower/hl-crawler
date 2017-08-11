@@ -16,6 +16,8 @@ trait Response {
 
   def request: Request
 
+  def extra = request.extra
+
   def meta = request.meta
 
   def url = request.url
@@ -37,7 +39,8 @@ trait Response {
     cookies: Map[String, String] = Map(),
     meta: RequestMeta = request.meta,
     encoding: Charset = request.encoding,
-    errback: Throwable => Unit = Request.defaultErrBack) =
+    errback: Throwable => Unit = Request.defaultErrBack,
+    extra: Map[String, String] = Map()) =
     Request(
       canonicalizeUrl(this.url, url),
       callback,
@@ -47,6 +50,7 @@ trait Response {
       cookies,
       meta,
       encoding,
-      errback
+      errback,
+      extra
     )
 }
