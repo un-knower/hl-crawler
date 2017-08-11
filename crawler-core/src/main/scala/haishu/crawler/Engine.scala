@@ -63,7 +63,7 @@ class Engine(pipelines: Seq[Pipeline])(implicit client: OkHttpClient) extends Ac
       downloader ! Download(request)
     case NoRequest =>
       noRequestTimes += 1
-      if (noRequestTimes >= 10) context.stop(self)
+      if (noRequestTimes >= Config.noRequestTimes) context.stop(self)
 
     case r: Response =>
       spider ! ParseResponse(r)

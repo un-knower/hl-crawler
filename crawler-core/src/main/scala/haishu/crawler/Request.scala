@@ -19,11 +19,11 @@ case class Request(
     body: Array[Byte] = Array(),
     cookies: Map[String, String] = Map(),
     meta: RequestMeta = RequestMeta(),
-    encoding: Charset = Charset.defaultCharset(),
+    encoding: Option[Charset] = None,
     errback: Throwable => Unit = Request.defaultErrBack,
     extra: Map[String, String] = Map()) {
 
-  def body(str: String) = copy(body = str.getBytes(encoding))
+  def body(str: String) = copy(body = str.getBytes(encoding.getOrElse(Charset.defaultCharset())))
 
   def extra(key: String, value: String): Request = extra(Seq(key -> value))
 

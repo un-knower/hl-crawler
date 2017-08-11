@@ -38,7 +38,7 @@ trait Response {
     body: Array[Byte] = Array(),
     cookies: Map[String, String] = Map(),
     meta: RequestMeta = request.meta,
-    encoding: Charset = request.encoding,
+    encoding: Option[Charset] = request.encoding,
     errback: Throwable => Unit = Request.defaultErrBack,
     extra: Map[String, String] = Map()) =
     Request(

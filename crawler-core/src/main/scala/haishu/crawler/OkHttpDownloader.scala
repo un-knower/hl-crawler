@@ -1,10 +1,12 @@
 package haishu.crawler
 
 import java.io.IOException
+import java.nio.charset.Charset
 import java.util.concurrent.TimeUnit
 
 import Messages.{Download, RetryRequest, ScheduleRequest}
 import akka.actor.{Actor, Props}
+import haishu.crawler.util.CharsetUtils
 import okhttp3.{Call, Callback, Headers, MediaType, OkHttpClient, RequestBody, Request => OkRequest, Response => OkResponse}
 
 import scala.collection.JavaConverters._
@@ -90,7 +92,7 @@ object OkHttpDownloader {
   }
 
   def convertResponse(okResponse: OkResponse, request: Request): Response = {
-    val charset = Option(okResponse.body().contentType()).flatMap(m => Option(m.charset()))
+    val charsetFromResponse = Option(okResponse.body().contentType()).flatMap(m => Option(m.charset()))
 
     var headers = Map[String, Seq[String]]()
     for (n <- okResponse.headers().names().asScala) {
@@ -98,6 +100,8 @@ object OkHttpDownloader {
     }
     val body = okResponse.body()
     val bytes = body.bytes()
+    val charsetFromContent = CharsetUtils.detectCharset(bytes).map(Charset.forName)
+    val charset = charsetFromResponse.orElse(charsetFromContent)
     HtmlResponse(
       okResponse.code(),
       headers,

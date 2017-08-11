@@ -41,7 +41,6 @@ object StatsZxfbExample extends App {
         case Some(m) => result(m)
         case None =>
           println(r.body.length)
-          println(new String(r.body, r.request.encoding))
           throw new Exception(s"${r.url} parse error")
       }
     }
