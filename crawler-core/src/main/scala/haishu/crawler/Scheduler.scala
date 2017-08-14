@@ -17,15 +17,16 @@ class Scheduler(engine: ActorRef) extends BaseActor {
 
   val queue = new LinkedBlockingDeque[Request]()
 
-  val seen = mutable.Set[Request]()
+  val seen = mutable.Set[String]()
 
   def poll() = queue.poll()
 
   override def receive = {
     case request: Request =>
-      if (!seen.contains(request)) {
-        log.debug(s"push to queue ${request.url}")
-        seen += request
+      val url = request.url
+      if (!seen.contains(url)) {
+        log.debug(s"push to queue $url")
+        seen += url
         queue.add(request)
       }
     case PollRequest =>

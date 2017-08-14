@@ -48,9 +48,12 @@ object Crawler {
 
   def test(request: Request): Response = {
     init()
-    val response = OkHttpDownloader.download(client, request)
-    terminate()
-    response
+    try {
+      val response = OkHttpDownloader.download(client, request)
+      response
+    } finally {
+      terminate()
+    }
   }
 
 }
