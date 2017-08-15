@@ -4,8 +4,6 @@ import akka.actor.ActorSystem
 import haishu.crawler.Messages.ScheduleRequest
 import okhttp3.OkHttpClient
 
-import scala.util.Success
-
 object Crawler {
 
   @volatile private var inited = false

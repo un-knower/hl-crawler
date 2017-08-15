@@ -42,7 +42,7 @@ class Engine(pipelines: Seq[Pipeline])(implicit client: OkHttpClient) extends Ac
   var downloadFailAfterRetry = 0
 
   override def preStart() = {
-    timer = system.scheduler.schedule(200.millis, 200.millis, scheduler, PollRequest)
+    timer = system.scheduler.schedule(200.millis, Config.intervalBetweenRequest, scheduler, PollRequest)
   }
 
   override def postStop() = {
@@ -63,7 +63,13 @@ class Engine(pipelines: Seq[Pipeline])(implicit client: OkHttpClient) extends Ac
       downloader ! Download(request)
     case NoRequest =>
       noRequestTimes += 1
-      if (noRequestTimes >= Config.noRequestTimes) context.stop(self)
+      if (noRequestTimes >= Config.noRequestTimes) {
+        val pool = client.connectionPool()
+        if (pool.connectionCount() == pool.idleConnectionCount()) context.stop(self)
+        else {
+          noRequestTimes -= 10
+        }
+      }
 
     case r: Response =>
       spider ! ParseResponse(r)

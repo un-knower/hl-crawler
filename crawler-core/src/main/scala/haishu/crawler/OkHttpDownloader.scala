@@ -4,10 +4,10 @@ import java.io.IOException
 import java.nio.charset.Charset
 import java.util.concurrent.TimeUnit
 
-import Messages.{Download, RetryRequest, ScheduleRequest}
-import akka.actor.{Actor, Props}
+import Messages.{Download, RetryRequest}
+import akka.actor.Props
 import haishu.crawler.util.CharsetUtils
-import okhttp3.{Call, Callback, Headers, MediaType, OkHttpClient, RequestBody, Request => OkRequest, Response => OkResponse}
+import okhttp3.{Call, Callback, Headers, OkHttpClient, RequestBody, Request => OkRequest, Response => OkResponse}
 
 import scala.collection.JavaConverters._
 import scala.concurrent.{Future, Promise}
@@ -68,7 +68,7 @@ object OkHttpDownloader {
   def buildClient(meta: RequestMeta, client: OkHttpClient) = {
     client.newBuilder()
       .retryOnConnectionFailure(true)
-      .connectTimeout(meta.downloadTimeout, TimeUnit.MILLISECONDS)
+      .connectTimeout(meta.downloadTimeout.toMillis, TimeUnit.MILLISECONDS)
       .followRedirects(meta.redirect)
       .proxy(meta.proxy.orNull)
       .build()

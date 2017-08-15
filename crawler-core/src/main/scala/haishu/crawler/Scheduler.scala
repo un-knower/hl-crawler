@@ -30,8 +30,8 @@ class Scheduler(engine: ActorRef) extends BaseActor {
         queue.add(request)
       }
     case PollRequest =>
-      val request = poll()
       val engine = sender()
+      val request = poll()
       if (request != null) engine ! ReplyRequest(request)
       else engine ! NoRequest
   }

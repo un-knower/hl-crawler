@@ -37,6 +37,8 @@ trait SimpleJob {
 
   def retryTimes = 0
 
+  def downloadTimeout = Config.downloadTimtout
+
   def startRequests: Seq[Request] = Seq()
 
   def parse(response: Response): immutable.Seq[Either[Request, Item]]
@@ -48,7 +50,7 @@ trait SimpleJob {
       Request(
         url = url,
         callback = parse,
-        meta = RequestMeta(retryTimes = retryTimes)
+        meta = RequestMeta(retryTimes = retryTimes, downloadTimeout = downloadTimeout)
       )
     }
     new Job(

@@ -31,6 +31,8 @@ case class Request(
 
   def extra(kvs: Seq[(String, String)]): Request = copy(extra = extra ++ kvs)
 
-  def retry = copy(meta = meta.retry)
+  def retry: Request = copy(meta = meta.retry)
+
+  def errback(f: Throwable => Unit): Request = copy(errback = f)
 
 }

@@ -1,12 +1,10 @@
 package haishu.crawler.example
 
 import haishu.crawler.Crawler
-import haishu.crawler.pipeline.{ConsolePipeline, SingleFilePipeline}
+import haishu.crawler.pipeline.SingleFilePipeline
 import haishu.crawler._
 
-import scala.concurrent.ExecutionContext.Implicits.global
 import scala.io.StdIn
-import scala.util.{Failure, Success}
 
 object StatsZxfbExample extends App {
 
