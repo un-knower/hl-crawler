@@ -1,7 +1,7 @@
 import sbt._
 
 object Dependencies {
-  val versionScala = "2.12.2"
+  val versionScala = "2.12.3"
 
   val _scalatest = "org.scalatest" %% "scalatest" % "3.0.3"
 
@@ -14,7 +14,7 @@ object Dependencies {
     .exclude("com.typesafe.akka", "akka-http_2.12")
     .exclude("com.typesafe.akka", "scala-library")
 
-  private val versionAkka = "2.5.3"
+  private val versionAkka = "2.5.4"
   val _akkaActor = "com.typesafe.akka" %% "akka-actor" % versionAkka
   val _akkaSlf4j = "com.typesafe.akka" %% "akka-slf4j" % versionAkka
   val _akkaStream = "com.typesafe.akka" %% "akka-stream" % versionAkka

@@ -5,7 +5,7 @@ import sbt._
 object Commons {
 
   def basicSettings = Seq(
-    organization := "Hualongdata developer team",
+    organization := "com.hualongdata",
     organizationName := "hualongdata.com",
     organizationHomepage := Some(url("https://hualongdata.github.io/hl-crawler")),
     homepage := Some(url("http://hualongdata.com")),
